@@ -32,9 +32,6 @@ export const ScheduleSelect: React.FC<ScheduleSelectProps> = ({
         isPending,
         data,
     } = useSelector((state: RootState) => state.scheduleList)
-    const {
-        data: viewer
-    } = useSelector((state: RootState) => state.viewer)
     const dispatch = useDispatch<AppDispatch>()
 
     const getIsActiveSchedule = useCallback((item: Schedule) => {
@@ -56,7 +53,7 @@ export const ScheduleSelect: React.FC<ScheduleSelectProps> = ({
     }, [getIsActiveSchedule, schedules, setSchedules])
 
     useEffect(() => {
-        dispatch(scheduleListModel.thunks.getScheduleThunk(viewer.id))
+        dispatch(scheduleListModel.thunks.getScheduleThunk())
     }, []);
 
     return (
@@ -116,7 +113,5 @@ function toSubGroups(groups: SubGroup[], id: Project['id']) {
             ...curr,
             projectId: id,
         }
-    ], [] as (SubGroup & {
-        projectId: number
-    })[])
+    ], [] as SubGroup[])
 }

@@ -10,10 +10,10 @@ import {Icon} from "@/shared/ui/Icon";
 export type CellListProps = PropsDefault<{
     label?: string
     data: {
-        id: number
+        id: number | string
         name: string
     }[]
-    onClick?: (id: number) => void
+    onClick?: (id: number | string) => void
 }>
 
 export const CellList: React.FC<CellListProps> = ({

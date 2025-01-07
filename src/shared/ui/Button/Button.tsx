@@ -32,6 +32,7 @@ const loaderColorMap: Record<
     critical: 'white',
     'critical-outline': 'critical',
     'secondary-flat': 'placeholder',
+    'critical-flat': 'critical',
 }
 
 const ButtonComponent: React.FC<ButtonProps> = ({

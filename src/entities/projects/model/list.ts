@@ -9,13 +9,13 @@ const getProjectsThunk = createAsyncThunk(
 )
 
 export type SubGroup = {
-    id: number,
+    id: number | string,
     name: string
-    projectId: number
+    projectId: number | string
 }
 
 export type Project = {
-    id: number
+    id: number | string
     name: string
     subgroups: SubGroup[]
 }

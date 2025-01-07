@@ -219,7 +219,5 @@ function toSubGroups(groups: SubGroup[], id: Project['id']) {
             ...curr,
             projectId: id,
         }
-    ], [] as (SubGroup & {
-        projectId: number
-    })[])
+    ], [] as SubGroup[])
 }

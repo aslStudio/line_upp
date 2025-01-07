@@ -9,7 +9,7 @@ import styles from './CollapseRadio.module.scss'
 import {clsx} from "clsx";
 
 type Item = {
-    id: number
+    id: number | string
     name: string
 }
 
@@ -29,7 +29,7 @@ const CollapseRadioComponent: React.FC<CollapseRadioProps> = ({
 }) => {
     const [isShow, setIsShow] = useState(true)
 
-    const getIsActive = useCallback((v: number) => {
+    const getIsActive = useCallback((v: number | string) => {
         return value.findIndex(item => item.id === v) !== -1
     }, [value])
 

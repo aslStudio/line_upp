@@ -7,10 +7,10 @@ export type GetEventsParams = {
     isFavorite: boolean
     startDate: TimeStamp
     endDate: TimeStamp
-    color: number[]
-    project: number[]
-    subGroup: number[]
-    schedule: number[]
+    color: (number | string)[]
+    project: (number | string)[]
+    subGroup: (number | string)[]
+    schedule: (number | string)[]
     eventType: EventType[]
     orderType: OrderStatus[]
 }
@@ -64,10 +64,10 @@ export type GetNearestEventsList = {
 export type SearchEventsParams = {
     search: string
     isFavorite: boolean
-    color: number[]
-    project: number[]
-    subGroup: number[]
-    schedule: number[]
+    color: (number | string)[]
+    project: (number | string)[]
+    subGroup: (number | string)[]
+    schedule: (number | string)[]
     eventType: EventType[]
     orderType: OrderStatus[]
 }
