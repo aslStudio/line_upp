@@ -13,10 +13,11 @@ import { RouterView } from './router'
 import { StoreProvider } from './store'
 
 function App() {
-	const { expand } = useTelegram()
+	const { expand, disableVerticalSwipes } = useTelegram()
 
 	useEffect(() => {
 		expand()
+		disableVerticalSwipes()
 	})
 
 	return (

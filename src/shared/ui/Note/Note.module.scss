@@ -25,11 +25,38 @@
     }
 
     button {
-        font-size: 13px;
-        line-height: 18px;
-        font-weight: 400;
-        color: var(--color-brand);
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         background: none;
+
+        p {
+            font-size: 13px;
+            line-height: 18px;
+            font-weight: 400;
+            color: var(--color-brand);
+
+            opacity: 1;
+
+            transition: 0.3s ease;
+            transition-property: opacity;
+        }
+
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.is-loading {
+            p {
+                opacity: 0;
+            }
+        }
     }
 }
 

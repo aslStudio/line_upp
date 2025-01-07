@@ -1,10 +1,12 @@
 export const sizes = [
+    'xs',
     's',
-    'm'
+    'm',
 ] as const
 
 export const colors = [
     'white',
     'critical',
-    'placeholder'
+    'placeholder',
+    'brand',
 ] as const

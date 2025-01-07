@@ -1,12 +1,20 @@
 import { useMemo } from "react";
 
-type TelegramWindow = {
-    Telegram?: {
-        WebApp?: {
+export type TelegramWindow = {
+    Telegram: {
+        WebApp: {
+            initData: string
+            initDataUnsafe: {
+                user: {
+                    language_code: string
+                }
+            }
             expand: () => void
             ready: () => void
             openTelegramLink: (data: string) => void
             setHeaderColor: (color: string) => void
+            requestFullscreen: () => void
+            lockOrientation: () => void
             shareToStory: (img: string, params?: {
                 widget_link: {
                     url: string
@@ -16,9 +24,15 @@ type TelegramWindow = {
             HapticFeedback: {
                 impactOccurred: (v: 'light' | 'medium' | 'heavy' | 'rigid' | 'soft') => void
             },
+            BackButton: {
+                show: () => void
+                hide: () => void
+                onClick: (cb: () => void) => void
+            },
+            disableVerticalSwipes: () => void
             platform: string
         },
-        authData?: {
+        authData: {
             user?: {
                 id: string
             }
@@ -76,6 +90,15 @@ export const useTelegram = () => {
         }
     }
 
+    function openFullScreen() {
+        try {
+            tg.Telegram?.WebApp?.requestFullscreen()
+            tg.Telegram?.WebApp?.lockOrientation()
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     const isMobileDevice = useMemo(() => {
         return (
             tg.Telegram?.WebApp?.platform === 'ios' ||
@@ -85,11 +108,14 @@ export const useTelegram = () => {
 
     return {
         isMobileDevice,
+        BackButton: tg.Telegram?.WebApp?.BackButton,
 
+        disableVerticalSwipes: tg.Telegram.WebApp.disableVerticalSwipes,
         expand,
         haptic,
         sendInviteLink,
         setHeaderColor,
         shareToStory,
+        openFullScreen,
     }
 }
