@@ -9,6 +9,7 @@ import styles from './EventButtons.module.scss'
 import {useProjectNavigate} from "@/shared/lib/hooks";
 import {createEventsModel} from "@/features/events/model";
 import {CreateEventPaths, EventsPaths, RootPaths} from "@/shared/lib";
+import {clsx} from "clsx";
 
 export const EventButtons = () => {
     const { navigate } = useProjectNavigate()
@@ -23,6 +24,7 @@ export const EventButtons = () => {
     if (event.isOrganizer) {
         return (
             <Button
+                className={styles.root}
                 view={'brand'}
                 size={'m'}
                 onClick={() => {
@@ -45,6 +47,7 @@ export const EventButtons = () => {
     ].includes(event.orderStatus)) {
         return (
             <Button
+                className={styles.root}
                 view={'critical-flat'}
                 size={'m'}
                 onClick={() => {}}
@@ -60,6 +63,7 @@ export const EventButtons = () => {
     ].includes(event.orderStatus)) {
         return (
             <Button
+                className={styles.root}
                 view={'brand'}
                 size={'m'}
                 onClick={() => {}}
@@ -74,7 +78,12 @@ export const EventButtons = () => {
         OrderStatus.APPROVED_SUBMIT_PARTICIPANT,
     ].includes(event.orderStatus)) {
         return (
-            <div className={styles.wrapper}>
+            <div
+                className={clsx(
+                    styles.root,
+                    styles.wrapper,
+                )}
+            >
                 <Button
                     view={'brand'}
                     size={'m'}
