@@ -4,6 +4,8 @@ import {RootState} from "@/app/store.tsx"
 
 import {UserCell, UserCellList} from "@/entities/user/ui"
 
+import styles from './EventOrganizers.module.scss'
+
 export const EventOrganizers = () => {
     const {
         event
@@ -11,6 +13,7 @@ export const EventOrganizers = () => {
 
     return (
         <UserCellList
+            className={styles.root}
             withBorder={true}
             title={'Организаторы'}
             description={'Ответственные за мероприятие'}
