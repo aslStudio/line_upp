@@ -1,0 +1,78 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--background-gray-light);
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input {
+    width: 60px;
+    text-align: center;
+}
+
+.days {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.day-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--background-secondary);
+    background-color: rgba(0, 0, 0, 0);
+
+    font-size: 15px;
+    line-height: 44px;
+    font-weight: 400;
+    color: var(--color-base);
+    text-align: center;
+
+    transition: 0.3s ease;
+    transition-property: background-color, border-color, color;
+
+    &.is-active {
+        color: var(--color-inverse);
+        background-color: var(--background-brand);
+        border-color: var(--background-brand);
+    }
+}

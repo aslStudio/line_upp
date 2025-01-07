@@ -1,0 +1,13 @@
+.root {
+    width: 100%;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--background-secondary);
+
+    p {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 400;
+        color: var(--color-gray-light);
+    }
+}

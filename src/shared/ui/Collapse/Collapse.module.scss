@@ -1,0 +1,34 @@
+.header {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+    & p {
+        font-size: 17px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--color-base);
+    }
+}
+
+.content {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.icon {
+    transform: rotate(0);
+
+    transition: 0.3s ease;
+    transition-property: transform;
+
+    &.is-active {
+        transform: rotate(180deg);
+    }
+}

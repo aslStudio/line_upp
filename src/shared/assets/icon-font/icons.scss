@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'custom-icon-font';
+    src:
+        local('custom-icon-font'),
+        url('./custom-icon-font.ttf') format('ttf'),
+        url('./custom-icon-font.woff') format('woff'), 
+        url('./custom-icon-font.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.icon-calendar:before {
+      content: "\e001";
+      font-family: 'custom-icon-font';
+    }
+.icon-check:before {
+      content: "\e002";
+      font-family: 'custom-icon-font';
+    }
+.icon-checked:before {
+      content: "\e003";
+      font-family: 'custom-icon-font';
+    }
+.icon-chevron:before {
+      content: "\e004";
+      font-family: 'custom-icon-font';
+    }
+.icon-copy:before {
+      content: "\e005";
+      font-family: 'custom-icon-font';
+    }
+.icon-cross-icon:before {
+      content: "\e006";
+      font-family: 'custom-icon-font';
+    }
+.icon-cross:before {
+      content: "\e007";
+      font-family: 'custom-icon-font';
+    }
+.icon-favorite-filled:before {
+      content: "\e008";
+      font-family: 'custom-icon-font';
+    }
+.icon-favorite-outline:before {
+      content: "\e009";
+      font-family: 'custom-icon-font';
+    }
+.icon-filter:before {
+      content: "\e00a";
+      font-family: 'custom-icon-font';
+    }
+.icon-info:before {
+      content: "\e00b";
+      font-family: 'custom-icon-font';
+    }
+.icon-location:before {
+      content: "\e00c";
+      font-family: 'custom-icon-font';
+    }
+.icon-lock:before {
+      content: "\e00d";
+      font-family: 'custom-icon-font';
+    }
+.icon-minus:before {
+      content: "\e00e";
+      font-family: 'custom-icon-font';
+    }
+.icon-notifications:before {
+      content: "\e00f";
+      font-family: 'custom-icon-font';
+    }
+.icon-owl:before {
+      content: "\e010";
+      font-family: 'custom-icon-font';
+    }
+.icon-people:before {
+      content: "\e011";
+      font-family: 'custom-icon-font';
+    }
+.icon-plus:before {
+      content: "\e012";
+      font-family: 'custom-icon-font';
+    }
+.icon-profile:before {
+      content: "\e013";
+      font-family: 'custom-icon-font';
+    }
+.icon-search:before {
+      content: "\e014";
+      font-family: 'custom-icon-font';
+    }
+.icon-star:before {
+      content: "\e015";
+      font-family: 'custom-icon-font';
+    }
+.icon-user:before {
+      content: "\e016";
+      font-family: 'custom-icon-font';
+    }

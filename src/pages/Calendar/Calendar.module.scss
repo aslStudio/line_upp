@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: calc(100vh - 83px);
+
+    padding-top: 125px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

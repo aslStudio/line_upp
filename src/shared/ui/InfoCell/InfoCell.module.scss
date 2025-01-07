@@ -1,0 +1,19 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.title {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+}

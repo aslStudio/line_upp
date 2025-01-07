@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+}
+
+.day-word {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: var(--color-base);
+}
+
+.day-name {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--color-base-alpha);
+}
+
+.length {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 24px;
+    min-height: 24px;
+    border-radius: 12px;
+
+    background-color: var(--background-brand);
+
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--color-inverse);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}

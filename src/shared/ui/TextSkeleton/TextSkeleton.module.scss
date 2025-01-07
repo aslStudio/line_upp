@@ -1,0 +1,22 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+}
+
+.inner {
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+.view {
+    &_base {
+        background-color: var(--color-base);
+    }
+
+    &_secondary {
+        background-color: var(--color-secondary);
+    }
+}

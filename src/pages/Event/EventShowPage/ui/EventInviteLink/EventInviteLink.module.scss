@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 16px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+}

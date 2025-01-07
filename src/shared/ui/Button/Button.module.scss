@@ -1,0 +1,126 @@
+.root {
+    position: relative;
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+
+.size {
+    &_s {
+        height: 44px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 8px;
+
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+    &_m {
+        height: 53px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 16px;
+
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+
+    &_l {
+        height: 56px;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 16px;
+
+        font-size: 15px;
+        line-height: 16px;
+        font-weight: 500;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+
+    opacity: 1;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+
+.view {
+    &_brand {
+        background-color: var(--background-brand);
+        color: var(--color-inverse);
+    }
+
+    &_secondary {
+        background-color: var(--background-secondary);
+        color: var(--color-base);
+    }
+
+    &_secondary-flat {
+        background-color: var(--background-secondary);
+        color: var(--color-placeholder);
+    }
+
+    &_critical {
+        background-color: var(--background-critical);
+        color: var(--color-base);
+    }
+
+    &_critical-outline {
+        background-color: transparent;
+        color: var(--color-critical);
+    }
+
+    &_critical-flat {
+        background-color: transparent;
+        color: var(--background-critical);
+        border: 1px solid var(--background-critical);
+    }
+}
+
+.is-wide {
+    width: 100%;
+}
+
+.is-loading {
+    .loader {
+        opacity: 1;
+    }
+
+    .content {
+        opacity: 0;
+    }
+}
+
+.is-disabled {
+    pointer-events: none;
+    background-color: var(--background-disabled)!important;
+    color: var(--color-disabled)!important;
+}

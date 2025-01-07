@@ -1,0 +1,33 @@
+.root {
+    padding-top: 6px;
+    padding-bottom: 60px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.field {
+    flex: 1;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    background-color: var(--background-secondary);
+}
+
+.item {
+    & + & {
+        border-top: 1px solid var(--background-secondary);
+    }
+}

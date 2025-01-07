@@ -1,0 +1,51 @@
+.root {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    color: var(--color-base);
+
+    transition: 0.3s ease;
+    transition-property: border-color, color;
+}
+
+.view {
+    &_base {
+        background-color: transparent;
+        border: 1px solid var(--border-secondary);
+    }
+
+    &_secondary {
+        background-color: var(--background-secondary);
+        border: 1px solid var(--background-secondary);
+    }
+}
+
+.size {
+    &_m {
+        height: 44px;
+        border-radius: 10px;
+
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    &_l {
+        height: 57px;
+        border-radius: 16px;
+
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+    &_dynamic {
+        border-radius: 16px;
+
+        font-size: 17px;
+        line-height: 21px;
+    }
+}
+
+.is-error {
+    border-color: var(--border-critical);
+}

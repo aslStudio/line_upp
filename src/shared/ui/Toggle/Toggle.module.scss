@@ -1,0 +1,41 @@
+.root {
+    position: relative;
+    width: 51px;
+    height: 31px;
+
+    padding: 2px;
+    border-radius: 100px;
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+    transition-property: background-color;
+
+    background-color: var(--background-secondary-alpha-dark);
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 2px;
+        left: 2px;
+
+        width: 27px;
+        height: 27px;
+        background-color: var(--background-white);
+        box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.06), 0 3px 8px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        border-radius: 50%;
+
+        transform: translateX(0);
+
+        transition: 0.3s ease;
+        transition-property: transform;
+    }
+
+    &.is-active {
+        background-color: var(--background-brand);
+
+        &::after {
+            transform: translateX(20px);
+        }
+    }
+}

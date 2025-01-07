@@ -1,0 +1,25 @@
+.is-last {
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+    margin-bottom: 16px;
+}
+
+.tabs {
+    margin-bottom: 16px;
+}

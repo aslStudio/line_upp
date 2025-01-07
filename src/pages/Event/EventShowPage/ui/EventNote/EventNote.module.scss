@@ -1,0 +1,45 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-base-alpha);
+    border-radius: 16px;
+    background-color: var(--background-base-dark);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 400;
+        color: var(--color-secondary);
+    }
+
+    button {
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 400;
+        color: var(--color-brand);
+        background: none;
+    }
+}
+
+.value {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-base);
+}
+
+.button {
+    margin-top: 16px;
+}

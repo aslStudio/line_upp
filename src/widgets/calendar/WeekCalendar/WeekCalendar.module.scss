@@ -1,0 +1,191 @@
+.wrapper {
+    display: flex;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для IE/Edge */
+
+    &::-webkit-scrollbar {
+        display: none; /* Для Chrome/Edge */
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .column-content {
+        border-left: 1px solid var(--background-calendar-card);
+
+        &:first-child {
+            border-left: none;
+        }
+    }
+}
+
+.column-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.head {
+    min-width: 135px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 36px;
+
+    margin-bottom: 14px;
+
+    border-radius: 8px;
+
+    gap: 8px;
+
+    & p {
+        font-size: 15px;
+        line-height: 20px;
+
+        &:nth-child(1) {
+            color: var(--color-placeholder);
+        }
+
+        &:nth-child(2) {
+            width: 30px;
+            text-align: center;
+            color: var(--color-base);
+        }
+    }
+
+    &.is-active {
+        background-color: var(--background-calendar-card);
+    }
+}
+
+.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-green-dark);
+    color: var(--color-brand);
+    border-radius: 4px;
+
+    .icon {
+        transform: rotate(45deg);
+    }
+
+    p {
+        text-align: left;
+        width: fit-content;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+}
+
+.event-card {
+    & + & {
+        margin-top: 12px;
+    }
+}
+
+.header {
+    display: flex;
+    gap: 2px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    margin-bottom: 22px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    pointer-events: none;
+
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для IE/Edge */
+
+    &::-webkit-scrollbar {
+        display: none; /* Для Chrome/Edge */
+    }
+}
+
+.header-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 17px;
+
+    width: 50px;
+    min-width: 50px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    border-radius: 6px;
+
+    &.is-active {
+        background-color: var(--background-calendar-card);
+
+        .day {
+            background-color: var(--background-brand);
+            color: var(--color-dark);
+        }
+    }
+}
+
+.day {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+
+    text-align: center;
+
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 500;
+
+    color: var(--color-placeholder);
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1px;
+
+    span {
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+    }
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}

@@ -1,0 +1,22 @@
+.root {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.title {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-base-alpha);
+}
+

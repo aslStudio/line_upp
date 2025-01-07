@@ -1,0 +1,31 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.subgroup {
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+        margin-top: 16px;
+    }
+
+    & + & {
+        margin-top: 8px;
+    }
+}
+
+.empty {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--color-base);
+}

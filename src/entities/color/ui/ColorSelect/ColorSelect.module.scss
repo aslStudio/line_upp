@@ -1,0 +1,36 @@
+.root {
+    overflow-x: auto;
+
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+
+    &::-webkit-scrollbar {
+        display: none; /* Для Chrome, Safari и других браузеров на основе WebKit */
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-item {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    outline: none;
+    border: none;
+
+    transition: 0.3s ease transform;
+    transform: scale(0.8);
+
+    &.is-skeleton {
+        background: var(--background-gray-light);
+    }
+
+    &.is-active {
+        transform: scale(1);
+    }
+}

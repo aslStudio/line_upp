@@ -1,0 +1,26 @@
+.title {
+    width: 100%;
+    margin-top: 8px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-base);
+}
+
+.description {
+    width: 100%;
+    margin-top: 10px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-placeholder);
+}
+
+.image {
+    width: 100%;
+    margin-top: 24px;
+}

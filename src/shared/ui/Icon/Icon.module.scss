@@ -1,0 +1,46 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+    transition-property: color;
+
+    &::before {
+        vertical-align: bottom;
+    }
+}
+
+.view {
+    &_base {
+        color: var(--color-base);
+    }
+
+    &_success {
+        color: var(--color-success);
+    }
+
+    &_critical {
+        color: var(--color-critical);
+    }
+
+    &_brand {
+        color: var(--color-brand);
+    }
+
+    &_placeholder {
+        color: var(--color-placeholder);
+    }
+
+    &_red {
+        color: var(--color-red);
+    }
+
+    &_dark {
+        color: var(--color-dark);
+    }
+
+    &_gray {
+        color: var(--color-gray);
+    }
+}

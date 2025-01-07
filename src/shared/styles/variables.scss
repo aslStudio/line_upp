@@ -1,0 +1,94 @@
+:root[data-theme="dark"] {
+    --background-base: #1E1E1E;
+    --background-white: #FFFFFF;
+    --background-base-dark: #1C1C1E;
+    --background-secondary: #292929;
+    --background-gray-light: #666666;
+    --background-brand: #33FFAA;
+    --background-critical: #FF3333;
+    --background-disabled: #444444;
+    --background-inactive: #373737;
+    --background-secondary-alpha: rgba(118, 118, 128, 0.24);
+    --background-secondary-alpha-dark: rgba(120, 120, 128, 0.32);
+    --background-secondary-light: #636366;
+    --background-calendar-card: #343434;
+    --background-calendar-card-dark: #2D2C2C;
+    --background-green-dark: #2A4338;
+    --background-green-alpha: rgba(0, 255, 161, 0.05);
+    --background-blue-dark: #2E3236;
+    --background-gray-dark: #303030;
+    --background-red-dark: #2B1B1B;
+    --background-orange-dark: #2B1B1B;
+
+    --color-base: #FFFFFF;
+    --color-inverse: #2B2D35;
+    --color-critical: #FF5233;
+    --color-secondary: #BABABA;
+    --color-brand: #33FFAA;
+    --color-placeholder: #888888;
+    --color-success: #4BCA81;
+    --color-red: #FF3030;
+    --color-disabled: #939393;
+    --color-dark: #1E1E1E;
+    --color-secondary-light: #A1A2A2;
+    --color-gray: #9F9F9F;
+    --color-gray-light: #EEEEEE;
+    --color-blue: #33B6FF;
+    --color-green: #33FFAA;
+    --color-base-alpha: rgba(255, 255, 255, 0.64);
+    --color-red-dark: #982A2A;
+    --color-orange: #FF6D33;
+    --color-gray-alpha: rgba(140, 140, 151, 0.3);
+
+    --border-secondary: #333337;
+    --border-critical: #FF3333;
+    --border-flat: #48484A;
+    --border-secondary-alpha: rgba(102, 102, 102, 0.1);
+    --border-gray: #232323;
+    --border-base-alpha: rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="light"] {
+    --background-base: #FFFFFF;
+    --background-white: #FFFFFF;
+    --background-base-dark: #1C1C1E;
+    --background-secondary: #acacac;
+    --background-gray-light: #666666;
+    --background-brand: #219653;
+    --background-critical: #FF3333;
+    --background-disabled: #444444;
+    --background-inactive: #373737;
+    --background-secondary-alpha: rgba(118, 118, 128, 0.24);
+    --background-secondary-alpha-dark: rgba(120, 120, 128, 0.32);
+    --background-secondary-light: #636366;
+    --background-calendar-card: #343434;
+    --background-calendar-card-dark: #2D2C2C;
+    --background-red-dark: #2B1B1B;
+
+    --color-base: #000000;
+    --color-inverse: #FFFFFF;
+    --color-critical: #FF5233;
+    --color-secondary: #BABABA;
+    --color-brand: #33FFAA;
+    --color-placeholder: #888888;
+    --color-success: #4BCA81;
+    --color-red: #FF3030;
+    --color-disabled: #939393;
+    --color-dark: #1E1E1E;
+    --color-secondary-light: #A1A2A2;
+    --color-gray: #9F9F9F;
+    --color-gray-light: #EEEEEE;
+    --color-blue: #33B6FF;
+    --color-green: #33FFAA;
+    --color-base-alpha: rgba(255, 255, 255, 0.64);
+    --color-red-dark: #982A2A;
+    --color-orange: #FF6D33;
+    --color-gray-alpha: rgba(140, 140, 151, 0.3);
+
+    --border-secondary: #D4D4D4;
+    --border-critical: #FF3333;
+    --border-flat: #48484A;
+    --border-secondary-alpha: rgba(102, 102, 102, 0.1);
+    --border-gray: #232323;
+    --border-base-alpha: rgba(255, 255, 255, 0.05);
+}

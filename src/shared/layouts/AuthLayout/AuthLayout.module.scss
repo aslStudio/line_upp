@@ -1,0 +1,51 @@
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.offset-top {
+    &_s {
+        padding-top: 40px;
+    }
+
+    &_m {
+        padding-top: 120px;
+    }
+}
+
+.title {
+    width: 100%;
+
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-base);
+}
+
+.description {
+    width: 100%;
+    margin-top: 4px;
+
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+.wrapper {
+    width: 100%;
+    margin-top: 20px;
+}

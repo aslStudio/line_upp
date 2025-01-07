@@ -1,0 +1,22 @@
+.root {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    width: 100%;
+    height: 53px;
+
+    background: none;
+    outline: none;
+    border: none;
+
+    color: var(--color-brand);
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.with-horizontal-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+}

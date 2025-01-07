@@ -1,0 +1,89 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.date-root {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.date-cell {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 8px;
+    border: 1px solid var(--background-secondary);
+    box-sizing: border-box;
+}
+
+.date-cell-month {
+    display: block;
+    width: 100%;
+    height: 15px;
+    background-color: var(--background-secondary);
+
+    padding-top: 1px;
+    box-sizing: border-box;
+
+    font-size: 9px;
+    line-height: 10px;
+    font-weight: 600;
+    text-align: center;
+
+    color: var(--color-base);
+}
+
+.date-cell-date {
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-base);
+}
+
+.repeat-cell {
+    padding-left: 51px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.address-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.address-cell-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--background-secondary);
+}
