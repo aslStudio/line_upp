@@ -40,8 +40,8 @@ export const NearestEventsModal: React.FC = () => {
             isModal={false}
             isUnderTabBar={true}
             snapPoints={[
-                '200px',
-                1
+                '155px',
+                0.95
             ]}
             HeaderComponent={(
                 <Header />

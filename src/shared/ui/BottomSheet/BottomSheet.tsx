@@ -61,6 +61,7 @@ const BottomSheetComponent: React.FC<BottomSheetProps> = ({
                         styles[`view_${view}`],
                         {
                             [styles['is-under-tab-bar']]: isUnderTabBar,
+                            [styles['with-max-height']]: !snapPoints.length
                         }
                     )}
                 >
