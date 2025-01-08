@@ -17,7 +17,6 @@ import {Icon} from "@/shared/ui/Icon"
 import {Button} from "@/shared/ui/Button"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
 import {Collapse} from "@/shared/ui/Collapse"
-import {Loader} from "@/shared/ui/Loader"
 import {EventType, OrderStatus} from "@/shared/api/enum.ts"
 
 import styles from './ScheduleFilterButton.module.scss'
@@ -25,7 +24,6 @@ import {CollapseRadio} from "@/shared/ui/CollapseRadio";
 
 export const ScheduleFilterButton: React.FC = () => {
     const { filters } = useSelector((state: RootState) => state.scheduleFilters)
-    const { state } = useSelector((state: RootState) => state.viewer)
 
     const { isOpen, open, close } = useModal()
 
@@ -44,22 +42,9 @@ export const ScheduleFilterButton: React.FC = () => {
             <button
                 className={clsx(
                     styles.root,
-                    {
-                        [styles['is-loading']]: state === 'pending',
-                    }
                 )}
                 onClick={open}
             >
-                <TransitionFade
-                    className={styles.loader}
-                >
-                    {state === 'pending' && (
-                        <Loader
-                            color={'white'}
-                            size={'s'}
-                        />
-                    )}
-                </TransitionFade>
                 <div className={styles.content}>
                     <Icon
                         key={'isFocused'}

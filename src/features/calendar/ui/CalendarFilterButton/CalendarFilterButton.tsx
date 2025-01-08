@@ -20,14 +20,12 @@ import {Icon} from "@/shared/ui/Icon"
 import {Button} from "@/shared/ui/Button"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
 import {Collapse} from "@/shared/ui/Collapse"
-import {Loader} from "@/shared/ui/Loader"
 import {EventType, OrderStatus} from "@/shared/api/enum.ts"
 
 import styles from './CalendarFilterButton.module.scss'
 
 export const CalendarFilterButton: React.FC = () => {
     const { filters } = useSelector((state: RootState) => state.eventsFilters)
-    const { state } = useSelector((state: RootState) => state.viewer)
 
     const { isOpen, open, close } = useModal()
 
@@ -46,22 +44,9 @@ export const CalendarFilterButton: React.FC = () => {
             <button
                 className={clsx(
                     styles.root,
-                    {
-                        [styles['is-loading']]: state === 'pending',
-                    }
                 )}
                 onClick={open}
             >
-                <TransitionFade
-                    className={styles.loader}
-                >
-                    {state === 'pending' && (
-                        <Loader
-                            color={'white'}
-                            size={'s'}
-                        />
-                    )}
-                </TransitionFade>
                 <div className={styles.content}>
                     <Icon
                         key={'isFocused'}
