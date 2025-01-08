@@ -4,6 +4,8 @@ import {RootState} from "@/app/store.tsx"
 
 import {UserCell, UserCellList} from "@/entities/user/ui"
 
+import styles from './ScheduleOrganizers.module.scss'
+
 export const ScheduleOrganizers = () => {
     const {
         schedule
@@ -11,11 +13,13 @@ export const ScheduleOrganizers = () => {
 
     return (
         <UserCellList
+            className={styles.root}
             withBorder={true}
             title={'Организатор'}
             description={'Создатель расписания'}
             render={item => (
                 <UserCell
+                    key={item.id}
                     {...item}
                 />
             )}

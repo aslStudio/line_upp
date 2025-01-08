@@ -36,6 +36,7 @@ export const NearestEventsModal: React.FC = () => {
     return (
         <BottomSheet
             isOpen={true}
+            isDefaultOpen={true}
             isDismissible={false}
             isModal={false}
             isUnderTabBar={true}

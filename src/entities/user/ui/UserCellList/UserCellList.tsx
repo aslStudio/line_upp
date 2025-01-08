@@ -48,14 +48,14 @@ const UserCellListComponent: React.FC<UserCellListProps> = ({
         )}
         <div>
             {list.map((item, index) => (
-                <>
+                <div key={item.id}>
                     {render(item)}
                     {index !== list.length - 1 && (
                         <div
                             className={styles.divider}
                         />
                     )}
-                </>
+                </div>
             ))}
         </div>
     </div>

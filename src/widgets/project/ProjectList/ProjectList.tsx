@@ -26,7 +26,10 @@ export const ProjectList: React.FC<ProjectListProps> = ({
         <div className={className}>
             <p className={styles.title}>{title}</p>
             {list.map(project => (
-                <div className={styles.cell}>
+                <div
+                    key={project.id}
+                    className={styles.cell}
+                >
                     <button
                         className={styles['cell-title']}
                         onClick={() => {

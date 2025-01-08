@@ -4,6 +4,8 @@ import {RootState} from "@/app/store.tsx"
 
 import {UserCell, UserCellList} from "@/entities/user/ui"
 
+import styles from './ScheduleParticipants.module.scss'
+
 export const ScheduleParticipants = () => {
     const {
         schedule
@@ -11,10 +13,12 @@ export const ScheduleParticipants = () => {
 
     return (
         <UserCellList
+            className={styles.root}
             withBorder={false}
             title={'Участники расписания'}
             render={item => (
                 <UserCell
+                    key={item.id}
                     {...item}
                 />
             )}

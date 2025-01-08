@@ -9,8 +9,10 @@ export type BottomSheetProps = React.PropsWithChildren<{
     isOpen: boolean
     isDismissible?: boolean
     isModal?: boolean
-    withOverlay?: boolean
     isUnderTabBar?: boolean
+    isDefaultOpen?: boolean
+
+    withOverlay?: boolean
     view?: typeof views[number]
 
     HeaderComponent?: React.ReactNode
@@ -23,6 +25,7 @@ export type BottomSheetProps = React.PropsWithChildren<{
 const BottomSheetComponent: React.FC<BottomSheetProps> = ({
     isOpen,
     isDismissible = true,
+    isDefaultOpen = false,
     isModal = true,
     snapPoints = [1],
     withOverlay = true,
@@ -38,6 +41,7 @@ const BottomSheetComponent: React.FC<BottomSheetProps> = ({
         <Drawer.Root
             noBodyStyles
             open={isOpen}
+            defaultOpen={isDefaultOpen}
             modal={isModal}
             dismissible={isDismissible}
             repositionInputs={!isModal}

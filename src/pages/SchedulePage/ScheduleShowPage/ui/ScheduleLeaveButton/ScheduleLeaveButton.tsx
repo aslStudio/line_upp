@@ -26,6 +26,7 @@ export const ScheduleLeaveButton = () => {
     return (
         <>
             <Button
+                className={styles.root}
                 size={'m'}
                 view={'critical'}
                 onClick={open}
