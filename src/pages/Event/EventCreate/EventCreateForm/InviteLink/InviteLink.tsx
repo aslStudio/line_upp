@@ -30,7 +30,7 @@ export const InviteLink = () => {
     }
 
     return (
-        <div>
+        <div className={styles.root}>
             <p className={styles.title}>Ссылка-приглашение</p>
             <p className={styles.description}>Пригласите тех, кого бы вы хотели видеть у себя на мероприятии</p>
             <Tabs

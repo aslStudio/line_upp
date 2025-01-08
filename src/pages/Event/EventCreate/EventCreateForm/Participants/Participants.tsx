@@ -60,9 +60,12 @@ export const Participants = () => {
 
     return (
         <div
-            className={clsx({
-                [styles['is-last']]: !!data.id
-            })}
+            className={clsx(
+                styles.root,
+                {
+                    [styles['is-last']]: !!data.id
+                }
+            )}
         >
             <p className={styles.title}>Участники</p>
             <p className={styles.description}>Вы можете управлять заявками и участниками в режиме редактирования</p>
