@@ -41,7 +41,7 @@ import {
     ScheduleMonthPage,
     ScheduleCalendarPage,
     ScheduleWeekPage
-} from "src/pages/ScheduleCalendarPage"
+} from "@/pages/ScheduleCalendarPage"
 
 import {
     AuthPaths,
@@ -53,10 +53,14 @@ import {
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
-import {ScheduleListPage, SchedulePage, ScheduleShowPage} from "@/pages/SchedulePage";
+import {ScheduleListPage, SchedulePage, ScheduleShowPage} from "@/pages/SchedulePage"
+import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
 
 export const RouterView = () => {
     const location = useLocation()
+    const { goBack } = useProjectNavigate()
+
+    const { BackButton } = useTelegram()
     const {
         displayLocation,
         rootClass,
@@ -96,6 +100,20 @@ export const RouterView = () => {
             setDisplayLocation(location)
         }, 300)
     }, [location, displayLocation]);
+
+    useEffect(() => {
+        const locationSub = location.pathname.split('/')[2]
+
+        if (
+            locationSub &&
+            [CalendarPaths.WEEK, CalendarPaths.MONTH].includes(locationSub as CalendarPaths)
+        ) {
+            BackButton?.hide()
+        } else {
+            BackButton?.show()
+            BackButton?.onClick(goBack)
+        }
+    }, [location]);
 
     return (
         <div
