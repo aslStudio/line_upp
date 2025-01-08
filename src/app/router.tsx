@@ -42,6 +42,16 @@ import {
     ScheduleCalendarPage,
     ScheduleWeekPage
 } from "@/pages/ScheduleCalendarPage"
+import {
+    ProjectCalendarPage,
+    ProjectMonthPage,
+    ProjectWeekPage
+} from "@/pages/ProjectCalendarPage"
+import {
+    ScheduleListPage,
+    SchedulePage,
+    ScheduleShowPage
+} from "@/pages/SchedulePage"
 
 import {
     AuthPaths,
@@ -53,7 +63,6 @@ import {
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
-import {ScheduleListPage, SchedulePage, ScheduleShowPage} from "@/pages/SchedulePage"
 import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
 
 export const RouterView = () => {
@@ -223,6 +232,31 @@ export const RouterView = () => {
                                 <ScheduleMonthPage />
                             </PrivateRoute>
                         }
+                    />
+                </Route>
+                <Route
+                    path={`${RootPaths.PROJECT_CALENDAR}/*`}
+                    element={(
+                        <PrivateRoute>
+                            <ProjectCalendarPage />
+                        </PrivateRoute>
+                    )}
+                >
+                    <Route
+                        path={CalendarPaths.MONTH}
+                        element={(
+                            <PrivateRoute>
+                                <ProjectMonthPage />
+                            </PrivateRoute>
+                        )}
+                    />
+                    <Route
+                        path={CalendarPaths.WEEK}
+                        element={(
+                            <PrivateRoute>
+                                <ProjectWeekPage />
+                            </PrivateRoute>
+                        )}
                     />
                 </Route>
                 <Route

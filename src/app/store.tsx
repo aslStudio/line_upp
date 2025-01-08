@@ -5,6 +5,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import {loginModel, registrationModel} from "@/features/auth/model"
 import {eventsFiltersModel, eventsSearchModel, createEventsModel} from "@/features/events/model"
 import {scheduleFiltersModel, scheduleSearchModel} from "@/features/schedule/model"
+import {projectFiltersModel, projectSearchModel} from "@/features/project/model"
 
 import {colorListModel} from "@/entities/color/model"
 import {eventsListModel, expandModel, nearestListModel} from "@/entities/events/model"
@@ -26,6 +27,8 @@ const store = configureStore({
         scheduleFilters: scheduleFiltersModel.reducer,
         scheduleSearch: scheduleSearchModel.reducer,
 
+        projectFilters: projectFiltersModel.reducer,
+        projectSearch: projectSearchModel.reducer,
 
         // entities
         color: colorListModel.reducer,

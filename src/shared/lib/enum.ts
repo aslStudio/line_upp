@@ -2,6 +2,7 @@ export enum RootPaths {
     AUTH = '/auth',
     CALENDAR = '/calendar',
     SCHEDULE_CALENDAR = '/schedule-calendar',
+    PROJECT_CALENDAR = '/project-calendar',
     SCHEDULE = '/schedules',
     EVENTS = '/events',
     ANOTHER = '*',

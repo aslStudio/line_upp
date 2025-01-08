@@ -3,35 +3,35 @@ import {useDispatch, useSelector} from "react-redux"
 
 import {AppDispatch, RootState} from "@/app/store.tsx"
 
-import {scheduleSearchModel} from "@/features/schedule/model"
+import {projectSearchModel} from "@/features/project/model"
 
 import {EventsSearchList} from "@/entities/events/ui";
 
 import {PropsDefault} from "@/shared/lib"
 import {InputSearch} from "@/shared/ui/fields/InputSearch"
 
-export type ScheduleEventsSearchInputProps = PropsDefault<{
+export type ProjectEventsSearchInputProps = PropsDefault<{
     inputRef: React.RefObject<HTMLInputElement | null>
     isFocused: boolean
     onFocus: () => void
 }>
 
-export const ScheduleEventsSearchInput: React.FC<ScheduleEventsSearchInputProps> = ({
+export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> = ({
     className,
     inputRef,
     isFocused,
     onFocus,
 }) => {
-    const { filters } = useSelector((state: RootState) => state.scheduleFilters)
+    const { filters } = useSelector((state: RootState) => state.projectFilters)
     const {
         searchValue,
         data,
         isPending,
-    } = useSelector((state: RootState) => state.scheduleSearch)
+    } = useSelector((state: RootState) => state.projectSearch)
     const dispatch = useDispatch<AppDispatch>()
 
     const onSearch = useCallback((search: string) => {
-        dispatch(scheduleSearchModel.thunks.searchThunk({
+        dispatch(projectSearchModel.thunks.searchThunk({
             search,
             isFavorite: filters.isFavorite,
             color: filters.color.map(item => item.id),
@@ -50,7 +50,7 @@ export const ScheduleEventsSearchInput: React.FC<ScheduleEventsSearchInputProps>
                 rootRef={inputRef}
                 value={searchValue}
                 onInput={v => {
-                    dispatch(scheduleSearchModel.actions.setSearch(v))
+                    dispatch(projectSearchModel.actions.setSearch(v))
                 }}
                 isLoading={false}
                 onSearch={onSearch}

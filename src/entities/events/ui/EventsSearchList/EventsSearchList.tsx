@@ -1,6 +1,7 @@
 import React from "react"
 import {createPortal} from "react-dom"
 import {AnimatePresence, motion} from "framer-motion"
+import {clsx} from "clsx"
 
 import {EventCard, EventCardSkeleton} from "@/entities/events/ui/EventCard"
 import {Event} from "@/entities/events/model"
@@ -12,19 +13,24 @@ import styles from './EventsSearchList.module.scss'
 export type EventsSearchListProps = {
     isShow: boolean
     isPending: boolean
+    offsetTop?: 's' | 'm'
     data: Event[]
 }
 
 export const EventsSearchList: React.FC<EventsSearchListProps> = ({
     isShow,
     isPending,
+    offsetTop = 'm',
     data,
 }) => {
     return createPortal(
         <AnimatePresence>
             {isShow && (
                 <motion.div
-                    className={styles.root}
+                    className={clsx(
+                        styles.root,
+                        styles[`offset_${offsetTop}`]
+                    )}
                     initial={{
                         opacity: 0,
                         y: 100,

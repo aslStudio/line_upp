@@ -10,11 +10,13 @@ type Context = {
     mainClass: RouterClass
     eventsClass: RouterClass
     scheduleClass: RouterClass
+    projectClass: RouterClass
     setRootClass: (v: RouterClass) => void
     setAuthClass: (v: RouterClass) => void
     setMainClass: (v: RouterClass) => void
     setScheduleClass: (v: RouterClass) => void
     setEventsClass: (v: RouterClass) => void
+    setProjectClass: (v: RouterClass) => void
     setDisplayLocation: (v: Location) => void
 }
 
@@ -25,11 +27,13 @@ const routeTransitionContext = createContext<Context>({
     mainClass: 'fade-in',
     scheduleClass: 'fade-in',
     eventsClass: 'fade-in',
+    projectClass: 'fade-in',
     setRootClass: () => {},
     setAuthClass: () => {},
     setMainClass: () => {},
     setEventsClass: () => {},
     setScheduleClass: () => {},
+    setProjectClass: () => {},
     setDisplayLocation: () => {},
 })
 
@@ -44,7 +48,8 @@ export const RouteTransitionProvider: React.FC<React.PropsWithChildren> = ({
     const [mainClass, setMainClass] = useState<RouterClass>('fade-in')
     const [scheduleClass, setScheduleClass] = useState<RouterClass>('fade-in')
     const [eventsClass, setEventsClass] = useState<RouterClass>('fade-in')
-
+    const [projectClass, setProjectClass] = useState<RouterClass>('fade-in')
+    
     return (
         <routeTransitionContext.Provider
             value={{
@@ -53,12 +58,14 @@ export const RouteTransitionProvider: React.FC<React.PropsWithChildren> = ({
                 authClass,
                 mainClass,
                 scheduleClass,
+                projectClass,
                 eventsClass,
                 setRootClass,
                 setAuthClass,
                 setMainClass,
                 setScheduleClass,
                 setEventsClass,
+                setProjectClass,
                 setDisplayLocation,
             }}
         >

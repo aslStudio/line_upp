@@ -4,8 +4,6 @@ import {clsx} from "clsx"
 
 import {AppDispatch, RootState} from "@/app/store.tsx"
 
-import {scheduleFiltersModel} from "@/features/schedule/model"
-
 import {Color} from "@/entities/color/model"
 import {ColorSelect} from "@/entities/color/ui"
 import {Project, SubGroup} from "@/entities/projects/model"
@@ -20,10 +18,11 @@ import {Collapse} from "@/shared/ui/Collapse"
 import {EventType, OrderStatus} from "@/shared/api/enum.ts"
 import {CollapseRadio} from "@/shared/ui/CollapseRadio";
 
-import styles from './ScheduleFilterButton.module.scss'
+import styles from './ProjectFilterButton.module.scss'
+import {projectFiltersModel} from "@/features/project/model";
 
-export const ScheduleFilterButton: React.FC = () => {
-    const { filters } = useSelector((state: RootState) => state.scheduleFilters)
+export const ProjectFilterButton: React.FC = () => {
+    const { filters } = useSelector((state: RootState) => state.projectFilters)
 
     const { isOpen, open, close } = useModal()
 
@@ -69,10 +68,10 @@ const FiltersModal: React.FC<{
     isOpen: boolean
     setIsOpen: (isOpen: boolean) => void
 }> = ({
-    isOpen,
-    setIsOpen,
-}) => {
-    const { filters } = useSelector((state: RootState) => state.scheduleFilters)
+          isOpen,
+          setIsOpen,
+      }) => {
+    const { filters } = useSelector((state: RootState) => state.projectFilters)
     const dispatch = useDispatch<AppDispatch>()
 
     const [color, setColor] = useState<Color[]>([])
@@ -97,7 +96,7 @@ const FiltersModal: React.FC<{
     }, [filters])
 
     const onSubmit = useCallback(() => {
-        dispatch(scheduleFiltersModel.actions.setFilters({
+        dispatch(projectFiltersModel.actions.setFilters({
             color,
             subgroup,
             eventType,
@@ -108,7 +107,7 @@ const FiltersModal: React.FC<{
     }, [color, subgroup, eventType, orderStatus])
 
     const onReset = useCallback(() => {
-        dispatch(scheduleFiltersModel.actions.resetFilters())
+        dispatch(projectFiltersModel.actions.resetFilters())
         initLocalValuesHandler()
     }, [])
 

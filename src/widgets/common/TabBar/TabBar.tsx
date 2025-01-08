@@ -27,10 +27,10 @@ const data: {
         path: `${RootPaths.SCHEDULE_CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
-        id: RootPaths.AUTH + '2' as RootPaths,
+        id: RootPaths.PROJECT_CALENDAR,
         name: 'Проекты',
         icon: 'people',
-        path: `${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`,
+        path: `${RootPaths.PROJECT_CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
         id: RootPaths.AUTH + '3' as RootPaths,

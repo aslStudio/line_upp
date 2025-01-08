@@ -57,6 +57,7 @@ export const EventSearchInput: React.FC<EventSearchInputProps> = ({
                 onFocus={onFocus}
             />
             <EventsSearchList
+                offsetTop={'s'}
                 isShow={isFocused}
                 isPending={isPending}
                 data={data}
