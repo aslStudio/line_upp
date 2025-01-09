@@ -1,24 +1,15 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {projectsApi} from "@/shared/api/projects";
-import {ResponseDefault} from "@/shared/lib/api/createRequest.ts";
-import {GetProjectsResponse} from "@/shared/api/projects/types.ts";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+
+import {projectsApi} from "@/shared/api/projects"
+import {ResponseDefault} from "@/shared/lib/api/createRequest.ts"
+import {GetProjectsResponse} from "@/shared/api/projects/types.ts"
+
+import { Project } from './types.ts'
 
 const getProjectsThunk = createAsyncThunk(
     'entities/projects/getProjects',
     projectsApi.getProjectsList
 )
-
-export type SubGroup = {
-    id: number | string,
-    name: string
-    projectId: number | string
-}
-
-export type Project = {
-    id: number | string
-    name: string
-    subgroups: SubGroup[]
-}
 
 const initialState: {
     data: Project[]

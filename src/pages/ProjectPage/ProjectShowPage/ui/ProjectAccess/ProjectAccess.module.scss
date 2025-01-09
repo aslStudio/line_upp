@@ -1,0 +1,51 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+}
+
+.cell {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    width: 100%;
+    height: 60px;
+
+    padding-left: 40px;
+    box-sizing: border-box;
+
+    &::before {
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: var(--background-blue);
+    }
+}

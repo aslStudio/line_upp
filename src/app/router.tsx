@@ -52,14 +52,22 @@ import {
     SchedulePage,
     ScheduleShowPage
 } from "@/pages/SchedulePage"
+import {
+    ProjectListPage,
+    ProjectPage,
+    ProjectShowPage
+} from "@/pages/ProjectPage"
 
 import {
     AuthPaths,
-    CalendarPaths, CreateEventPaths,
+    CalendarPaths,
+    CreateEventPaths,
     EventsPaths,
     OnBoardingPaths,
     RegistrationPaths,
-    RootPaths, SchedulePaths
+    RootPaths,
+    SchedulePaths,
+    ProjectPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
@@ -320,6 +328,19 @@ export const RouterView = () => {
                     <Route
                         path={SchedulePaths.EXPAND}
                         element={<ScheduleShowPage />}
+                    />
+                </Route>
+                <Route
+                    path={RootPaths.PROJECTS}
+                    element={<ProjectPage />}
+                >
+                    <Route
+                        path={ProjectPaths.LIST}
+                        element={<ProjectListPage />}
+                    />
+                    <Route
+                        path={ProjectPaths.EXPAND}
+                        element={<ProjectShowPage />}
                     />
                 </Route>
                 <Route 

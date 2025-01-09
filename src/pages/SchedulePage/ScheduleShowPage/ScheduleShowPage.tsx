@@ -32,7 +32,7 @@ export const ScheduleShowPage = () => {
 
     useEffect(() => {
         dispatch(scheduleExpandModel.thunks.fetchExpandThunk({
-            id: Number(params.id)
+            id: `${params.id}`
         }))
     }, []);
 

@@ -15,7 +15,8 @@ import {projectFiltersModel, projectSearchModel} from "@/features/project/model"
 import {Project, projectsListModel} from "@/entities/projects/model"
 
 import {useRouteTransitionContext} from "@/shared/lib/providers"
-import {useTelegram} from "@/shared/lib/hooks"
+import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
+import {ProjectPaths, RootPaths} from "@/shared/lib"
 
 import styles from './ProjectCalendarPage.module.scss'
 
@@ -32,6 +33,7 @@ export const ProjectCalendarPage = () => {
         projectClass
     } = useRouteTransitionContext()
     const { setHeaderColor } = useTelegram()
+    const { navigate } = useProjectNavigate()
 
     const isFiltered = useMemo<boolean>(() => {
         return Object.values(filters).reduce((prev, curr) => {
@@ -85,6 +87,12 @@ export const ProjectCalendarPage = () => {
 
                 onClearSearch={() => {
                     dispatch(projectSearchModel.actions.reset())
+                }}
+                onClickMainFilter={() => {
+                    navigate(
+                        RootPaths.PROJECTS,
+                        ProjectPaths.LIST,
+                    )
                 }}
             />
             <div

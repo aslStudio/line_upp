@@ -53,7 +53,8 @@ export const TabBar = () => {
         return (
             !location.pathname.includes(RootPaths.AUTH) &&
             !location.pathname.includes(RootPaths.EVENTS) &&
-            !location.pathname.includes(RootPaths.SCHEDULE)
+            !location.pathname.includes(RootPaths.SCHEDULE) &&
+            !location.pathname.includes(RootPaths.PROJECTS)
         )
     }, [location])
 

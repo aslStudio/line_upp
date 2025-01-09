@@ -1,0 +1,35 @@
+.root {
+    position: sticky;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 600;
+    color: var(--color-base);
+    text-align: center;
+
+    margin-top: 26px;
+}
+
+.description {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+    text-align: center;
+
+    margin-top: 8px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-top: 32px;
+}

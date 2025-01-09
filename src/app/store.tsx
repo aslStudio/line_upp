@@ -9,7 +9,7 @@ import {projectFiltersModel, projectSearchModel} from "@/features/project/model"
 
 import {colorListModel} from "@/entities/color/model"
 import {eventsListModel, expandModel, nearestListModel} from "@/entities/events/model"
-import {projectsListModel} from "@/entities/projects/model"
+import {projectExpandModel, projectsListModel} from "@/entities/projects/model"
 import {viewerModel} from "@/entities/viewer/model"
 import {scheduleExpandModel, scheduleListModel} from "@/entities/schedule/model"
 import {searchAddressModel} from "@/entities/address/model"
@@ -42,6 +42,7 @@ const store = configureStore({
         organizersSearch: organizersSearchModel.reducer,
         participantsSearch: participantsSearchModel.reducer,
         scheduleExpand: scheduleExpandModel.reducer,
+        projectExpand: projectExpandModel.reducer,
     }
 })
 

@@ -34,3 +34,8 @@ export enum InviteLinkType {
     PUBLIC,
     LIMITED,
 }
+
+export enum ProjectAccessType {
+    PUBLIC,
+    PERSONAL,
+}

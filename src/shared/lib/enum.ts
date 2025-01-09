@@ -4,6 +4,7 @@ export enum RootPaths {
     SCHEDULE_CALENDAR = '/schedule-calendar',
     PROJECT_CALENDAR = '/project-calendar',
     SCHEDULE = '/schedules',
+    PROJECTS = '/projects',
     EVENTS = '/events',
     ANOTHER = '*',
 }
@@ -54,4 +55,9 @@ export enum CreateEventPaths {
 export enum SchedulePaths {
     LIST = 'list',
     EXPAND = ':id'
+}
+
+export enum ProjectPaths {
+    LIST = 'list',
+    EXPAND = ':id',
 }
