@@ -46,7 +46,6 @@ export const EventCreateAddress = () => {
                 <button
                     className={styles.button}
                     onClick={() => {
-                        goBack()
                         dispatch(searchAddressModel.actions.reset())
                     }}
                 >
