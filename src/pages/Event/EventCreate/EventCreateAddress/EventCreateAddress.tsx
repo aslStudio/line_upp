@@ -32,12 +32,14 @@ export const EventCreateAddress = () => {
                 <InputSearch
                     className={styles.field}
                     value={searchValue}
-                    placeholder={'Введите адресс'}
+                    placeholder={'Введите адрес'}
                     isLoading={isPending}
                     onInput={v => {
+                        console.log(v, 'input')
                         dispatch(searchAddressModel.actions.setSearchValue(v))
                     }}
                     onSearch={v => {
+                        console.log(v, 'search')
                         dispatch(searchAddressModel.thunks.searchThunk({ search: v }))
                     }}
                 />

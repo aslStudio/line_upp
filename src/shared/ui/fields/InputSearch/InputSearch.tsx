@@ -38,6 +38,7 @@ const InputSearchComponent: React.FC<InputSearchProps> = ({
         clearTimeout(timeout)
         timeout = setTimeout(() => {
             onSearch(v)
+            clearTimeout(timeout)
         }, 400)
     }
 
