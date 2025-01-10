@@ -1,6 +1,6 @@
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
-import {RootState} from "@/app/store.tsx"
+import {AppDispatch, RootState} from "@/app/store.tsx"
 
 import {useRemoveProject} from "@/features/project/hooks"
 
@@ -9,9 +9,11 @@ import {BottomSheet, useModal} from "@/shared/ui/BottomSheet"
 import {useProjectNavigate} from "@/shared/lib/hooks"
 
 import styles from './ProjectButtons.module.scss'
+import {createProjectModel} from "@/features/project/model";
+import {CreateProjectPaths, ProjectPaths, RootPaths} from "@/shared/lib";
 
 export const ProjectButtons = () => {
-    const { goBack } = useProjectNavigate()
+    const { navigate, goBack } = useProjectNavigate()
 
     const {
         isLoading,
@@ -20,6 +22,7 @@ export const ProjectButtons = () => {
     const {
         project
     } = useSelector((state: RootState) => state.projectExpand)
+    const dispatch = useDispatch<AppDispatch>()
 
     const { isOpen, open, close } = useModal()
 
@@ -29,6 +32,14 @@ export const ProjectButtons = () => {
                 <Button
                     view={'brand'}
                     onClick={() => {
+                        if (project) {
+                            dispatch(createProjectModel.actions.init(project))
+                            navigate(
+                                RootPaths.PROJECTS,
+                                ProjectPaths.CREATE,
+                                CreateProjectPaths.FORM,
+                            )
+                        }
                     }}
                 >
                     Редактировать

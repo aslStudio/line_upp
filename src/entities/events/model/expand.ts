@@ -26,7 +26,7 @@ const expandSlice = createSlice({
     name: 'entities/events/expand',
     initialState,
     reducers: {
-        submitOrder: (state, { payload }: PayloadAction<{userId: number}>) => {
+        submitOrder: (state, { payload }: PayloadAction<{userId: number | string}>) => {
             if (state.event){
                 const user = state.event.orders.find(item => item.id === payload.userId)
                 if (user) {
@@ -35,7 +35,7 @@ const expandSlice = createSlice({
                 }
             }
         },
-        rejectOrder: (state, { payload }: PayloadAction<{userId: number}>) => {
+        rejectOrder: (state, { payload }: PayloadAction<{userId: number | string}>) => {
             if (state.event){
                 const user = state.event.orders.find(item => item.id === payload.userId)
                 if (user) {

@@ -67,11 +67,17 @@ import {
     RegistrationPaths,
     RootPaths,
     SchedulePaths,
-    ProjectPaths,
+    ProjectPaths, CreateProjectPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
 import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
+import {
+    ProjectCreateOrganizersPage,
+    ProjectCreatePage,
+    ProjectCreateParticipantsPage
+} from "@/pages/ProjectPage/ProjectCreatePage";
+import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
 
 export const RouterView = () => {
     const location = useLocation()
@@ -342,6 +348,23 @@ export const RouterView = () => {
                         path={ProjectPaths.EXPAND}
                         element={<ProjectShowPage />}
                     />
+                    <Route
+                        path={ProjectPaths.CREATE}
+                        element={<ProjectCreatePage />}
+                    >
+                        <Route
+                            path={CreateProjectPaths.FORM}
+                            element={<ProjectCreateFormPage />}
+                        />
+                        <Route
+                            path={CreateProjectPaths.PARTICIPANTS}
+                            element={<ProjectCreateParticipantsPage />}
+                        />
+                        <Route
+                            path={CreateProjectPaths.ORGANIZER}
+                            element={<ProjectCreateOrganizersPage />}
+                        />
+                    </Route>
                 </Route>
                 <Route 
                     path={RootPaths.ANOTHER}

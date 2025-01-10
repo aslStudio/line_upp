@@ -1,0 +1,18 @@
+.root {
+    position: sticky;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.error {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-critical);
+}

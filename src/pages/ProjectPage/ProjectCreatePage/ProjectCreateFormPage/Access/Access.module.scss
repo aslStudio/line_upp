@@ -1,0 +1,31 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    color: var(--color-placeholder);
+}
+
+.radio {
+    height: 60px;
+
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--color-base);
+}

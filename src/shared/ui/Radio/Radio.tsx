@@ -8,12 +8,14 @@ import {clsx} from "clsx";
 
 export type RadioProps = PropsDefaultWithChildren<{
     value: boolean
+    view?: 'blue' | 'brand'
     setValue: (value: boolean) => void
 }>
 
 const RadioComponent: React.FC<RadioProps> = ({
     className,
     value,
+    view = 'brand',
     setValue,
     children,
 }) => {
@@ -22,6 +24,7 @@ const RadioComponent: React.FC<RadioProps> = ({
             className={clsx(
                 className,
                 styles.root,
+                styles[`view_${view}`],
                 {
                     [styles['is-active']]: value,
                 }
@@ -29,12 +32,14 @@ const RadioComponent: React.FC<RadioProps> = ({
             onClick={() => setValue(!value)}
         >
             <div className={styles.radio}>
-                <Icon
-                    className={styles.icon}
-                    name={'checked'}
-                    view={'dark'}
-                    size={20}
-                />
+                {view === 'brand' && (
+                    <Icon
+                        className={styles.icon}
+                        name={'checked'}
+                        view={'dark'}
+                        size={20}
+                    />
+                )}
             </div>
             <div className={styles.text}>{children}</div>
         </button>

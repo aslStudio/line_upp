@@ -39,3 +39,8 @@ export enum ProjectAccessType {
     PUBLIC,
     PERSONAL,
 }
+
+export enum ReminderType {
+    MINUTES,
+    HOUR,
+}

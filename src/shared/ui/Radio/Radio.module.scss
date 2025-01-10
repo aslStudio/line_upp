@@ -9,6 +9,24 @@
     border: none;
 }
 
+.view {
+    &_blue {
+        .radio {
+            &::after {
+                background-color: var(--background-blue);
+            }
+        }
+    }
+
+    &_brand {
+        .radio {
+            &::after {
+                background-color: var(--background-brand);
+            }
+        }
+    }
+}
+
 .is-active {
     & .radio {
         &::after {
@@ -43,7 +61,6 @@
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        background-color: var(--background-brand);
 
         opacity: 0;
 

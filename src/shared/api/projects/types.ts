@@ -1,5 +1,5 @@
 import {ResponseDefault} from "@/shared/lib/api/createRequest.ts"
-import {ProjectAccessType} from "@/shared/api/enum.ts"
+import {InviteLinkType, ProjectAccessType, ReminderType} from "@/shared/api/enum.ts"
 
 export type GetProjectsResponse = {
     id: number
@@ -19,10 +19,15 @@ export type GetProjectExpandResponse = {
     name: string
     comment: string
     note: string
+    reminder: {
+        type: ReminderType
+        value: number
+    }
     organizers: {
         id: number
         name: string
         avatar: string
+        isCreator: boolean
     }[]
     participants: {
         id: number
@@ -34,7 +39,11 @@ export type GetProjectExpandResponse = {
         name: string
         avatar: string
     }[]
+    isNeedSubmit: boolean
     access: ProjectAccessType
+    inviteLink: string
+    inviteLinkType: InviteLinkType
+    inviteLinkLimit: number
 }
 
 export type PatchProjectParams = {
@@ -50,10 +59,18 @@ export type CreateProjectParams = {
     name: string
     comment: string
     note: string
+    reminder: {
+        type: ReminderType
+        value: number
+    }
     isNeedSubmit: boolean
-    organizers: (number | string)[]
+    organizers: {
+        id: number | string
+        isCreator: boolean
+    }[]
     participants: (number | string)[]
     access: ProjectAccessType
+    inviteLinkType: InviteLinkType
 }
 
 export type UpdateProjectParams = {
@@ -61,10 +78,19 @@ export type UpdateProjectParams = {
     name: string
     comment: string
     note: string
+    reminder: {
+        type: ReminderType
+        value: number
+    }
     isNeedSubmit: boolean
-    organizers: (number | string)[]
+    organizers: {
+        id: number | string
+        isCreator: boolean
+    }[]
     participants: (number | string)[]
+    invited: (number | string)[]
     access: ProjectAccessType
+    inviteLinkType: InviteLinkType
 }
 
 export type ProjectsApi = {
@@ -75,5 +101,9 @@ export type ProjectsApi = {
     patchProject: (p: PatchProjectParams) =>
         Promise<ResponseDefault>
     remove: (p: RemoveProjectParams) =>
+        Promise<ResponseDefault>
+    create: (p: CreateProjectParams) =>
+        Promise<ResponseDefault>
+    update: (p: UpdateProjectParams) =>
         Promise<ResponseDefault>
 }

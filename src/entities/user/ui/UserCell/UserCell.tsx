@@ -6,7 +6,7 @@ import {Icon} from "@/shared/ui/Icon"
 import styles from './UserCell.module.scss'
 
 export type UserCellProps = PropsDefault<{
-    id: number
+    id: number | string
     avatar: string
     name: string
 }>

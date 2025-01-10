@@ -1,6 +1,6 @@
 import {User} from "@/entities/user/model"
 
-import {ProjectAccessType} from "@/shared/api/enum.ts"
+import {InviteLinkType, ProjectAccessType, ReminderType} from "@/shared/api/enum.ts"
 
 export type SubGroup = {
     id: number | string,
@@ -19,8 +19,18 @@ export type ExpandProject = {
     name: string
     comment: string
     note: string
-    organizers: User[]
+    organizers: (User & {
+        isCreator: boolean
+    })[]
     participants: User[]
     invited: User[]
     access: ProjectAccessType
+    reminder: {
+        type: ReminderType
+        value: number
+    }
+    isNeedSubmit: boolean
+    inviteLink: string
+    inviteLinkType: InviteLinkType
+    inviteLinkLimit: number
 }

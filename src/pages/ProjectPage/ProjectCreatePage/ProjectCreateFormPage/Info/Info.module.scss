@@ -1,0 +1,37 @@
+.root {
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--background-secondary);
+}
+
+.note {
+    margin-top: 16px;
+}
+
+.cell {
+    margin-top: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.label {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--background-gray-light);
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input {
+    width: 60px;
+    text-align: center;
+}

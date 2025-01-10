@@ -1,0 +1,53 @@
+.root {
+    position: sticky;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: var(--color-base);
+
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+
+    margin-bottom: 16px;
+}
+
+.label {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-placeholder);
+
+    margin-bottom: 8px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    p {
+        font-size: 15px;
+        line-height: 22px;
+        font-weight: 400;
+        color: var(--color-base);
+    }
+}
+
+.field {
+    width: 60px;
+}
+
+.tabs {
+    margin-bottom: 16px;
+}

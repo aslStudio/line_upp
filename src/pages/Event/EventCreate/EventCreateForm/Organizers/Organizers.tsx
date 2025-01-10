@@ -49,7 +49,7 @@ export const Organizers = () => {
                 Добавить
             </ButtonCell>
             <TransitionFade>
-                {errors.color && (
+                {errors.organizers && (
                     <p className={styles.error}>Укажите организаторов</p>
                 )}
             </TransitionFade>

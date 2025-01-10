@@ -14,7 +14,7 @@ import {expandModel} from "@/entities/events/model";
 
 export type UserOrderCellProps = PropsDefault<{
     eventId: number | string
-    id: number
+    id: number | string
     avatar: string
     name: string
 }>

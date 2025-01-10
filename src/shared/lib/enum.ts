@@ -60,4 +60,11 @@ export enum SchedulePaths {
 export enum ProjectPaths {
     LIST = 'list',
     EXPAND = ':id',
+    CREATE = 'create',
+}
+
+export enum CreateProjectPaths {
+    FORM = 'form',
+    ORGANIZER = 'organizer',
+    PARTICIPANTS = 'participants',
 }

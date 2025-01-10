@@ -9,12 +9,12 @@ export type UserCellListProps = PropsDefault<{
     title?: string
     description?: string
     list: {
-        id: number
+        id: number | string
         avatar: string
         name: string
     }[]
     render: (data: {
-        id: number
+        id: number | string
         avatar: string
         name: string
     }) => React.ReactNode

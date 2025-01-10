@@ -176,12 +176,12 @@ export type GetExpandEventResponse = {
 
 export type SubmitOrderParams = {
     eventId: number | string
-    userId: number
+    userId: number | string
 }
 
 export type RejectOrderParams = {
     eventId: number | string
-    userId: number
+    userId: number | string
 }
 
 export type CreateEventParams = {
@@ -209,14 +209,14 @@ export type CreateEventParams = {
     }
     price: number
     organizers: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]
     project: number | string
     subgroup: number | string
     participants: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]
@@ -247,24 +247,24 @@ export type UpdateEventParams = {
     }
     price: number
     organizers: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]
     project: number | string
     subgroup: number | string
     participants: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]
     orders: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]
     rejectedOrders: {
-        id: number
+        id: number | string
         name: string
         avatar: string
     }[]

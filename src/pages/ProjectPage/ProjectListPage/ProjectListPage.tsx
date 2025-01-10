@@ -11,7 +11,7 @@ import {Project, projectsListModel} from "@/entities/projects/model"
 
 import {useProjectNavigate} from "@/shared/lib/hooks"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
-import {RootPaths} from "@/shared/lib"
+import {CreateProjectPaths, ProjectPaths, RootPaths} from "@/shared/lib"
 import {ButtonCell} from "@/shared/ui/ButtonCell"
 
 import styles from './ProjectListPage.module.scss'
@@ -61,6 +61,13 @@ export const ProjectListPage = () => {
                             }}
                             icon={'cross-icon'}
                             withHorizontalPadding={true}
+                            onClick={() => {
+                                navigate(
+                                    RootPaths.PROJECTS,
+                                    ProjectPaths.CREATE,
+                                    CreateProjectPaths.FORM,
+                                )
+                            }}
                         >
                             Добавить
                         </ButtonCell>
