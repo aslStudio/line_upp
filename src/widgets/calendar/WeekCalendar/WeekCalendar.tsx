@@ -5,12 +5,13 @@ import {EventWeekCard} from "@/entities/events/ui"
 import {CalendarEvent} from "@/entities/events/model"
 
 import {Icon} from "@/shared/ui/Icon"
-import {getDayFromTS, getIsToday} from "@/shared/lib/date.ts"
+import {getCurrentMonth, getDayFromTS, getIsToday, getMonthFromTS} from "@/shared/lib/date.ts"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
 import {Loader} from "@/shared/ui/Loader"
 import {TimeStamp} from "@/shared/lib"
 
 import styles from './WeekCalendar.module.scss'
+import {useCommonHeaderContext} from "@/widgets/common";
 
 export type WeekCalendarProps = {
     days: CalendarEvent[]
@@ -27,6 +28,8 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
     onClickAdd,
     onScrollEnd,
 }) => {
+    const { setTitle } = useCommonHeaderContext()
+
     const bodyRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
 
@@ -62,10 +65,19 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
 
         const scrolledElements = Math.round(element!.scrollLeft / 135)
 
-        headerRef.current?.scrollTo({
-            behavior: 'smooth',
-            left: scrolledElements * 50 + 2 * (scrolledElements - 1),
-        })
+        if (headerRef.current) {
+
+            headerRef.current?.scrollTo({
+                behavior: 'smooth',
+                left: scrolledElements * 50,
+            })
+
+            const newHeaderScroll = headerRef.current.scrollLeft
+
+            const newDate = days[Math.round(newHeaderScroll / 50)].date
+            console.log(getMonthFromTS(newDate))
+            setTitle(getMonthFromTS(newDate))
+        }
 
         if (element) {
             const isAtEnd =
@@ -75,7 +87,7 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
                 onScrollEnd?.()
             }
         }
-    }, [onScrollEnd])
+    }, [onScrollEnd, days])
 
     useEffect(() => {
         bodyRef.current?.addEventListener('scroll', handleScroll)
@@ -84,6 +96,10 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
             bodyRef.current?.removeEventListener('scroll', handleScroll)
         }
     }, [onScrollEnd]);
+
+    useEffect(() => {
+        setTitle(getCurrentMonth())
+    }, [])
 
     return (
         <div>

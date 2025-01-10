@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
 
 import {AppDispatch, RootState} from "@/app/store.tsx"
@@ -30,6 +30,22 @@ export const EventCreateOrganizers = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     const [value, setValue] = useState<User[]>([])
+
+    const buttonText = useMemo(() => {
+        if (value.length === 0) {
+            return 'Добавьте хотя бы 1 контакт'
+        }
+
+        if (value.length === 1) {
+            return 'Добавить 1 контакт'
+        }
+
+        if (value.length < 5) {
+            return `Добавить ${value.length} контакта`
+        }
+
+        return `Добавить ${value.length} контактов`
+    }, [value])
 
     const onSubmit = useCallback(() => {
         dispatch(createEventsModel.actions.update({
@@ -92,9 +108,10 @@ export const EventCreateOrganizers = () => {
                 </TransitionFade>
             </div>
             <Button
+                isDisabled={value.length === 0}
                 onClick={onSubmit}
             >
-                {value.length ? `Добавить ${value.length} контакта` : 'Добавьте хотя бы 1 контакт'}
+                {buttonText}
             </Button>
         </div>
     )

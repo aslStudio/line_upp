@@ -3,11 +3,12 @@ import {clsx} from "clsx"
 
 import {CalendarEvent} from "@/entities/events/model"
 
-import {getDayFromTS, getIsToday, getIsWeekend} from "@/shared/lib/date.ts"
+import {getCurrentMonth, getDayFromTS, getIsToday, getIsWeekend, getMonthFromTS} from "@/shared/lib/date.ts"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
 import {Loader} from "@/shared/ui/Loader"
 
 import styles from './MonthCalendar.module.scss'
+import {useCommonHeaderContext} from "@/widgets/common";
 
 export type MonthCalendarEvent = {
     days: CalendarEvent[]
@@ -20,6 +21,8 @@ export const MonthCalendar: React.FC<MonthCalendarEvent> = ({
     isFetching,
     onScrollEnd,
 }) => {
+    const { setTitle } = useCommonHeaderContext()
+
     const rootRef = useRef<HTMLDivElement | null>(null)
 
     const [viewDays, setViewDays] = useState<CalendarEvent[]>([])
@@ -37,15 +40,26 @@ export const MonthCalendar: React.FC<MonthCalendarEvent> = ({
     const handleScroll = useCallback(() => {
         const element = document.querySelector('#calendarPage')
         if (element) {
-            console.log('scroll')
             const isBottom =
                 element.scrollHeight - element.scrollTop === element.clientHeight
+
             if (isBottom) {
-                console.log(isBottom, 'isBottom')
                 onScrollEnd?.()
             }
         }
-    }, [onScrollEnd])
+
+        if (element) {
+            const rowIndex = Math.round((element.scrollTop) / 80)
+
+            console.log(rowIndex)
+
+            const dayIndex = rowIndex * 7
+
+            if (days[dayIndex]) {
+                setTitle(getMonthFromTS(days[dayIndex].date))
+            }
+        }
+    }, [onScrollEnd, days])
 
     useEffect(() => {
         if (days.length) {
@@ -82,6 +96,10 @@ export const MonthCalendar: React.FC<MonthCalendarEvent> = ({
             document.querySelector('#calendarPage')?.removeEventListener('scroll', handleScroll);
         }
     }, [handleScroll]);
+
+    useEffect(() => {
+        setTitle(getCurrentMonth())
+    }, [])
 
     return (
         <div

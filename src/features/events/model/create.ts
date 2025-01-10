@@ -62,6 +62,7 @@ type InitialState = {
         description: boolean
         color: boolean,
         organizers: boolean,
+        participants: boolean,
         project: boolean,
     },
     creatingState: RequestState
@@ -105,6 +106,7 @@ const initialState: InitialState = {
         description: false,
         color: false,
         organizers: false,
+        participants: false,
         project: false,
     },
     creatingState: 'idle',
@@ -125,6 +127,12 @@ const createEventSlice = createSlice({
             if (key in state.errors) {
                 state.errors[key as keyof InitialState['errors']] = false
             }
+        },
+        removeOrganizer: (state, { payload }: PayloadAction<Partial<InitialState['data']['organizers'][number]>>) => {
+            state.data.organizers = state.data.organizers.filter(item => item.id !== payload.id)
+        },
+        removeParticipant: (state, { payload }: PayloadAction<Partial<InitialState['data']['participants'][number]>>) => {
+            state.data.participants = state.data.participants.filter(item => item.id !== payload.id)
         },
         setErrors: (state, { payload }: PayloadAction<InitialState['errors']>) => {
             state.errors = payload
@@ -212,7 +220,8 @@ export function validateEvent(data: InitialState['data']) {
         name: !data.name,
         description: !data.description,
         color: !data.color,
-        organizers: !data.organizers,
+        organizers: !data.organizers.length,
+        participants: !data.participants.length,
         project: data.id ? !data.project : false,
     }
 }

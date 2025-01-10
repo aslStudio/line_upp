@@ -185,9 +185,8 @@ export const InputTime: React.FC<InputTimeProps> = ({
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value
         const newTimeStamp = optionsMap[type].inputToTS(newValue, value)
-        console.log(newTimeStamp)
         setValue(newTimeStamp)
-    }, [setValue])
+    }, [setValue, value])
 
     return (
         <input

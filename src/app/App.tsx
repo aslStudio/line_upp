@@ -1,7 +1,7 @@
 import {useEffect} from "react"
 import {BrowserRouter} from "react-router-dom"
 
-import {TabBar} from "@/widgets/common"
+import {CommonHeaderProvider, TabBar} from "@/widgets/common"
 
 import {
 	ThemeProvider,
@@ -24,10 +24,12 @@ function App() {
 		<StoreProvider>
 			<BrowserRouter>
 				<ThemeProvider>
-					<RouteTransitionProvider>
-						<RouterView />
-						<TabBar />
-					</RouteTransitionProvider>
+					<CommonHeaderProvider>
+						<RouteTransitionProvider>
+							<RouterView />
+							<TabBar />
+						</RouteTransitionProvider>
+					</CommonHeaderProvider>
 				</ThemeProvider>
 			</BrowserRouter>
 		</StoreProvider>

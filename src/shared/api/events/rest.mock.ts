@@ -271,8 +271,8 @@ function getIsOwl() {
 }
 
 function getIsOrganizer() {
-    // return Boolean(getRandomInt(0, 1))
-    return true
+    return Boolean(getRandomInt(0, 1))
+    // return true
 }
 
 function getNote() {

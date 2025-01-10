@@ -2,12 +2,11 @@ import React, { useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { clsx } from "clsx"
 
-import { CalendarTypeTabs } from "@/widgets/common"
+import {CalendarTypeTabs, useCommonHeaderContext} from "@/widgets/common"
 
 import { PropsDefault } from "@/shared/lib"
 import { TransitionFade } from "@/shared/ui/TransitionFade"
 import { Icon } from "@/shared/ui/Icon"
-import { getCurrentMonth } from "@/shared/lib/date.ts"
 
 import styles from './CommonHeader.module.scss'
 
@@ -44,6 +43,8 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({
     onClickMainFilter,
     onClearSearch,
 }) => {
+    const { title: monthTitle } = useCommonHeaderContext()
+
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [isFocused, setIsFocused] = useState(false)
@@ -98,7 +99,7 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({
                 FilterModalButton={FilterButton}
             />
             <div className={styles.bottom}>
-                <p className={styles['bottom-title']}>{getCurrentMonth()}</p>
+                <p className={styles['bottom-title']}>{monthTitle}</p>
                 <CalendarTypeTabs />
             </div>
         </div>

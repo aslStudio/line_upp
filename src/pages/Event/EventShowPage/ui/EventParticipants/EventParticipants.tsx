@@ -7,7 +7,6 @@ import {UserCell, UserCellList} from "@/entities/user/ui"
 
 import {Tabs} from "@/shared/ui/Tabs";
 import {TransitionFade} from "@/shared/ui/TransitionFade";
-import {UserOrderCell} from "@/features/user/ui/UserOrderCell";
 
 import styles from './EventParticipants.module.scss'
 
@@ -59,9 +58,9 @@ export const EventParticipants = () => {
                         <UserCellList
                             list={event.orders}
                             render={user => (
-                                <UserOrderCell
+                                <UserCell
                                     {...user}
-                                    eventId={event.id}
+                                    // eventId={event.id}
                                 />
                             )}
                         />

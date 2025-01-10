@@ -1,15 +1,17 @@
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
-import {RootState} from "@/app/store.tsx"
+import {AppDispatch, RootState} from "@/app/store.tsx"
 
-import {UserCell, UserCellList} from "@/entities/user/ui"
+import {createEventsModel} from "@/features/events/model"
+
+import {UserCellList, UserProjectCell} from "@/entities/user/ui"
 
 import {ButtonCell} from "@/shared/ui/ButtonCell"
 import {useProjectNavigate} from "@/shared/lib/hooks"
 import {CreateEventPaths, EventsPaths, RootPaths} from "@/shared/lib"
+import {TransitionFade} from "@/shared/ui/TransitionFade"
 
 import styles from './Organizers.module.scss'
-import {TransitionFade} from "@/shared/ui/TransitionFade";
 
 export const Organizers = () => {
     const {
@@ -19,6 +21,7 @@ export const Organizers = () => {
     const {
         data, errors
     } = useSelector((state: RootState) => state.createEvent)
+    const dispatch = useDispatch<AppDispatch>()
 
     return (
         <div className={styles.root}>
@@ -27,8 +30,11 @@ export const Organizers = () => {
                 description={'Ответственные за мероприятие'}
                 list={data.organizers}
                 render={item => (
-                    <UserCell
+                    <UserProjectCell
                         {...item}
+                        onRemove={() => {
+                            dispatch(createEventsModel.actions.removeOrganizer(item))
+                        }}
                     />
                 )}
             />

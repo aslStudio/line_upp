@@ -1,8 +1,8 @@
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
-import {RootState} from "@/app/store.tsx"
+import {AppDispatch, RootState} from "@/app/store.tsx"
 
-import {UserCell, UserCellList} from "@/entities/user/ui"
+import {UserCell, UserCellList, UserProjectCell} from "@/entities/user/ui"
 
 import {ButtonCell} from "@/shared/ui/ButtonCell"
 import {useProjectNavigate} from "@/shared/lib/hooks"
@@ -14,6 +14,7 @@ import {Tabs} from "@/shared/ui/Tabs";
 import {TransitionFade} from "@/shared/ui/TransitionFade";
 import {UserOrderCell} from "@/features/user/ui/UserOrderCell";
 import {clsx} from "clsx";
+import {createEventsModel} from "@/features/events/model";
 
 enum ParticipantTab {
     ORDERS,
@@ -45,8 +46,10 @@ export const Participants = () => {
     } = useProjectNavigate()
 
     const {
-        data
+        data,
+        errors,
     } = useSelector((state: RootState) => state.createEvent)
+    const dispatch = useDispatch<AppDispatch>()
 
     const [tab, setTab] = useState(ParticipantTab.ORDERS)
 
@@ -95,8 +98,11 @@ export const Participants = () => {
                         key={'PARTICIPANTS'}
                         list={data.participants}
                         render={item => (
-                            <UserCell
+                            <UserProjectCell
                                 {...item}
+                                onRemove={() => {
+                                    dispatch(createEventsModel.actions.removeParticipant(item))
+                                }}
                             />
                         )}
                     />
@@ -129,6 +135,11 @@ export const Participants = () => {
             >
                 Добавить
             </ButtonCell>
+            <TransitionFade>
+                {errors.participants && (
+                    <p className={styles.error}>Укажите участников</p>
+                )}
+            </TransitionFade>
         </div>
     )
 }
