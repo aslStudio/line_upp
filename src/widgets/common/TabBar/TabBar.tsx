@@ -1,7 +1,7 @@
 import {useCallback, useMemo} from "react"
 import {Link, useLocation} from "react-router-dom"
 
-import {CalendarPaths, RootPaths} from "@/shared/lib"
+import {CalendarPaths, NotificationPaths, RootPaths} from "@/shared/lib"
 import {Icon, IconProps} from "@/shared/ui/Icon"
 
 import styles from './TabBar.module.scss'
@@ -33,10 +33,10 @@ const data: {
         path: `${RootPaths.PROJECT_CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
-        id: RootPaths.AUTH + '3' as RootPaths,
+        id: RootPaths.NOTIFICATION,
         name: 'Уведомления',
         icon: 'notifications',
-        path: `${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`,
+        path: `${RootPaths.NOTIFICATION}/${NotificationPaths.LIST}`,
     },
     {
         id: RootPaths.AUTH + '4' as RootPaths,

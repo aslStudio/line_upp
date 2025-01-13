@@ -254,3 +254,47 @@ export function getTimeDiff(
 ) {
     return endTime - startTime
 }
+
+export function formatTimeDifference(timestamp: TimeStamp) {
+    const now = new Date().getTime();
+    const targetDate = timestamp
+    const diff = now - targetDate;
+
+    const minutes = Math.floor(diff / (1000 * 60));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+
+    if (minutes < 60) {
+        return `${minutes} минут${minutes !== 1 ? 'ы' : 'а'}`;
+    } else if (hours < 24) {
+        const remainingMinutes = minutes % 60;
+        return `${hours} час${hours !== 1 ? 'а' : ''} ${remainingMinutes} минут${remainingMinutes !== 1 ? 'ы' : 'а'}`;
+    } else {
+        const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' };
+        return targetDate.toLocaleString('ru-RU', options as unknown as Record<string, string>);
+    }
+}
+
+export function formatDate(
+    ts: TimeStamp,
+    type: 'DD:MM' | 'DD:MM:YYYY' = 'DD:MM'
+): string {
+    const date = new Date(ts)
+    const day = date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`
+    const month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
+    const year = date.getFullYear()
+
+    if (type === 'DD:MM') {
+        return `${day}.${month}`
+    }
+
+    return `${day}.${month}.${year}`
+}
+
+export function getRandomDateLastWeek(): TimeStamp {
+    const today = new Date()
+
+    const lastWeek = new Date()
+    lastWeek.setDate(today.getDate() - 7)
+
+    return Math.random() * (today.getTime() - lastWeek.getTime()) + lastWeek.getTime()
+}

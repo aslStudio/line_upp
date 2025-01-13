@@ -47,6 +47,7 @@
     --border-secondary-alpha: rgba(102, 102, 102, 0.1);
     --border-gray: #232323;
     --border-base-alpha: rgba(255, 255, 255, 0.05);
+    --border-gray-light: #323232;
 }
 
 :root[data-theme="light"] {
@@ -93,4 +94,5 @@
     --border-secondary-alpha: rgba(102, 102, 102, 0.1);
     --border-gray: #232323;
     --border-base-alpha: rgba(255, 255, 255, 0.05);
+    --border-gray-light: #323232;
 }

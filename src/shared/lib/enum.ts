@@ -6,6 +6,7 @@ export enum RootPaths {
     SCHEDULE = '/schedules',
     PROJECTS = '/projects',
     EVENTS = '/events',
+    NOTIFICATION = '/notification',
     ANOTHER = '*',
 }
 
@@ -67,4 +68,9 @@ export enum CreateProjectPaths {
     FORM = 'form',
     ORGANIZER = 'organizer',
     PARTICIPANTS = 'participants',
+}
+
+export enum NotificationPaths {
+    LIST = 'list',
+    ARCHIVE = 'archive',
 }

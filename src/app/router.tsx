@@ -67,7 +67,8 @@ import {
     RegistrationPaths,
     RootPaths,
     SchedulePaths,
-    ProjectPaths, CreateProjectPaths,
+    ProjectPaths,
+    CreateProjectPaths, NotificationPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
@@ -78,6 +79,8 @@ import {
     ProjectCreateParticipantsPage
 } from "@/pages/ProjectPage/ProjectCreatePage";
 import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
+import {NotificationsArchivePage, NotificationsListPage, NotificationsPage} from "@/pages/NotificationsPage";
+import {NotificationListProvider} from "@/widgets/notification";
 
 export const RouterView = () => {
     const location = useLocation()
@@ -365,6 +368,23 @@ export const RouterView = () => {
                             element={<ProjectCreateOrganizersPage />}
                         />
                     </Route>
+                </Route>
+                <Route
+                    path={RootPaths.NOTIFICATION}
+                    element={(
+                        <NotificationListProvider>
+                            <NotificationsPage />
+                        </NotificationListProvider>
+                    )}
+                >
+                    <Route
+                        path={NotificationPaths.LIST}
+                        element={<NotificationsListPage />}
+                    />
+                    <Route
+                        path={NotificationPaths.ARCHIVE}
+                        element={<NotificationsArchivePage />}
+                    />
                 </Route>
                 <Route 
                     path={RootPaths.ANOTHER}

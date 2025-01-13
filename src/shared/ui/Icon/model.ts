@@ -9,5 +9,7 @@ export const views = [
     'placeholder',
     'red',
     'dark',
-    'gray'
+    'gray',
+    'yellow',
+    'blue',
 ] as const

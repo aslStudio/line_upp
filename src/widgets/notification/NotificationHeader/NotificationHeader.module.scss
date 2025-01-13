@@ -1,0 +1,81 @@
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    background: linear-gradient(var(--background-base) 0%, var(--background-base) 80%, rgba(30, 30, 30, 0) 100%);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: var(--color-base);
+}
+
+.settings-button {
+    background: none;
+    outline: none;
+
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 400;
+    color: var(--color-brand);
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.button {
+    width: 44px;
+}
+
+.archive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-title {
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-base);
+}
+
+.archive-description {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-placeholder);
+
+    margin-top: 4px;
+    margin-bottom: 16px;
+}

@@ -6,6 +6,7 @@ import {loginModel, registrationModel} from "@/features/auth/model"
 import {eventsFiltersModel, eventsSearchModel, createEventsModel} from "@/features/events/model"
 import {scheduleFiltersModel, scheduleSearchModel} from "@/features/schedule/model"
 import {createProjectModel, projectFiltersModel, projectSearchModel} from "@/features/project/model"
+import {notificationFilterModel} from "@/features/notification/model"
 
 import {colorListModel} from "@/entities/color/model"
 import {eventsListModel, expandModel, nearestListModel} from "@/entities/events/model"
@@ -14,6 +15,7 @@ import {viewerModel} from "@/entities/viewer/model"
 import {scheduleExpandModel, scheduleListModel} from "@/entities/schedule/model"
 import {searchAddressModel} from "@/entities/address/model"
 import {organizersSearchModel, participantsSearchModel} from "@/entities/user/model"
+import {notificationArchiveModel, notificationListModel} from "@/entities/notification/model";
 
 const store = configureStore({
     reducer: {
@@ -31,19 +33,32 @@ const store = configureStore({
         projectSearch: projectSearchModel.reducer,
         createProject: createProjectModel.reducer,
 
+        notificationFilters: notificationFilterModel.reducer,
+
         // entities
         color: colorListModel.reducer,
-        eventList: eventsListModel.reducer,
-        projectList: projectsListModel.reducer,
+
         viewer: viewerModel.reducer,
-        scheduleList: scheduleListModel.reducer,
-        nearestList: nearestListModel.reducer,
+
+        eventList: eventsListModel.reducer,
         eventExpand: expandModel.reducer,
-        addressSearch: searchAddressModel.reducer,
-        organizersSearch: organizersSearchModel.reducer,
-        participantsSearch: participantsSearchModel.reducer,
-        scheduleExpand: scheduleExpandModel.reducer,
+
+        projectList: projectsListModel.reducer,
         projectExpand: projectExpandModel.reducer,
+
+        scheduleList: scheduleListModel.reducer,
+        scheduleExpand: scheduleExpandModel.reducer,
+
+        nearestList: nearestListModel.reducer,
+
+        addressSearch: searchAddressModel.reducer,
+
+        organizersSearch: organizersSearchModel.reducer,
+
+        participantsSearch: participantsSearchModel.reducer,
+
+        notificationList: notificationListModel.reducer,
+        notificationArchiveList: notificationArchiveModel.reducer,
     }
 })
 
