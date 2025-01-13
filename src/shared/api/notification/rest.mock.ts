@@ -54,6 +54,14 @@ export const notificationApi: NotificationApi = {
             payload: null
         }
     },
+    sendParticipation: async () => {
+        await delay()
+
+        return {
+            error: false,
+            payload: null
+        }
+    },
 }
 
 function getList(page: number) {
