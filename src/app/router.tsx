@@ -57,6 +57,19 @@ import {
     ProjectPage,
     ProjectShowPage
 } from "@/pages/ProjectPage"
+import {
+    ProjectCreateOrganizersPage,
+    ProjectCreatePage,
+    ProjectCreateParticipantsPage
+} from "@/pages/ProjectPage/ProjectCreatePage"
+import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
+import {
+    NotificationsArchivePage,
+    NotificationsListPage,
+    NotificationsPage
+} from "@/pages/NotificationsPage"
+
+import {NotificationListProvider} from "@/widgets/notification"
 
 import {
     AuthPaths,
@@ -73,14 +86,6 @@ import {
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
 import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
-import {
-    ProjectCreateOrganizersPage,
-    ProjectCreatePage,
-    ProjectCreateParticipantsPage
-} from "@/pages/ProjectPage/ProjectCreatePage";
-import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
-import {NotificationsArchivePage, NotificationsListPage, NotificationsPage} from "@/pages/NotificationsPage";
-import {NotificationListProvider} from "@/widgets/notification";
 
 export const RouterView = () => {
     const location = useLocation()
