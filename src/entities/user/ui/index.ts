@@ -1,3 +1,5 @@
 export * from './UserCell'
 export * from './UserCellList'
 export * from './UserProjectCell'
+export * from './UserProfileInfoCell'
+export * from './UserProfileBio'

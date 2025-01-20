@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 
-import {loginModel, registrationModel} from "@/features/auth/model"
+import {loginModel, registrationModel, resetPasswordModel} from "@/features/auth/model"
 import {eventsFiltersModel, eventsSearchModel, createEventsModel} from "@/features/events/model"
 import {scheduleFiltersModel, scheduleSearchModel} from "@/features/schedule/model"
 import {createProjectModel, projectFiltersModel, projectSearchModel} from "@/features/project/model"
@@ -22,6 +22,8 @@ const store = configureStore({
         // features
         login: loginModel.reducer,
         registration: registrationModel.reducer,
+        resetPassword: resetPasswordModel.reducer,
+
         eventsFilters: eventsFiltersModel.reducer,
         eventsSearch: eventsSearchModel.reducer,
         createEvent: createEventsModel.reducer,

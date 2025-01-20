@@ -25,5 +25,13 @@ export const authApi: AuthApi = {
             error: false,
             payload: null,
         }
+    },
+    resetPassword: async () => {
+        await delay()
+
+        return {
+            error: false,
+            payload: null,
+        }
     }
 }

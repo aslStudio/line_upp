@@ -12,8 +12,6 @@ import {useEventsCalendarFetch} from "@/features/events/hooks"
 import {CalendarFilterButton} from "@/features/calendar/ui/CalendarFilterButton"
 import {FavoriteFilterButton} from "@/features/calendar"
 
-import { viewerModel } from "@/entities/viewer/model"
-
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
 import {useTelegram} from "@/shared/lib/hooks/useTelegram.ts"
 
@@ -45,7 +43,6 @@ export const CalendarPage = () => {
 
     useEffect(() => {
         setHeaderColor('#1E1E1E')
-        dispatch(viewerModel.thunks.getViewerThunk())
         onFetchFirst()
     }, []);
 

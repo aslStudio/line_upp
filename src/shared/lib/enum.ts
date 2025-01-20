@@ -7,6 +7,7 @@ export enum RootPaths {
     PROJECTS = '/projects',
     EVENTS = '/events',
     NOTIFICATION = '/notification',
+    PROFILE = '/profile',
     ANOTHER = '*',
 }
 
@@ -29,6 +30,12 @@ export enum OnBoardingPaths {
     PROJECTS = 'projects',
     PARTICIPANTS = 'participants',
     SAVE = 'save',
+}
+
+export enum RecoveryPaths {
+    PHONE = 'phone',
+    CODE = 'code',
+    PASSWORD = 'password',
 }
 
 export enum CalendarPaths {
@@ -73,4 +80,10 @@ export enum CreateProjectPaths {
 export enum NotificationPaths {
     LIST = 'list',
     ARCHIVE = 'archive',
+}
+
+export enum ProfilePaths {
+    VIEWER = 'viewer',
+    UPDATE = 'update',
+    SECURITY = 'security',
 }

@@ -6,7 +6,7 @@ import { User } from './types.ts'
 
 const getOrganizersThunk = createAsyncThunk(
     'entities/organizers/getOrganizersThunk',
-    usersApi.getOrganizers
+    usersApi.getContacts
 )
 
 type InitialState = {

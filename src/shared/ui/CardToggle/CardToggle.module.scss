@@ -1,0 +1,28 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 16px;
+    border-radius: 16px;
+    background-color: var(--background-secondary);
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--color-base);
+}
+
+.wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 51px;
+    height: 31px;
+}

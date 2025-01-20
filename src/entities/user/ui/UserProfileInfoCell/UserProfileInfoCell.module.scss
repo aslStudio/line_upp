@@ -1,0 +1,24 @@
+.root {
+    padding: 10px 16px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: var(--background-secondary);
+}
+
+.hidden {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-brand);
+}
+
+.value {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-base);
+}
+
+.label {
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--color-placeholder);
+}

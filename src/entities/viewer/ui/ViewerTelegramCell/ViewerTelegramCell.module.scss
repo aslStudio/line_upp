@@ -1,0 +1,38 @@
+.root {
+    box-sizing: border-box;
+    padding: 10px 16px;
+    border-radius: 16px;
+    background-color: var(--background-secondary);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    gap: 8px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.telegram {
+    width: calc(100% - 28px);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-base);
+}
+
+.description {
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--color-placeholder);
+}

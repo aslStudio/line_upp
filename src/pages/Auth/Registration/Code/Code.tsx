@@ -9,7 +9,7 @@ import {useProjectNavigate, useTimer} from "@/shared/lib/hooks"
 import {AuthLayout} from "@/shared/layouts"
 import {InputCode} from "@/shared/ui/fields/InputCode"
 import {Button} from "@/shared/ui/Button"
-import {AuthPaths, RegistrationPaths, RootPaths} from "@/shared/lib"
+import {AuthPaths, formatPhoneNumber, RegistrationPaths, RootPaths} from "@/shared/lib"
 
 import styles from './Code.module.scss'
 
@@ -68,7 +68,7 @@ export const RegistrationCodePage = () => {
     return (
         <AuthLayout
             title={'Введите код из SMS'}
-            description={'Код был отправлен на номер MOCK'}
+            description={`Код был отправлен на номер ${formatPhoneNumber(phone)}`}
         >
             <InputCode
                 value={code}

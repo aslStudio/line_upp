@@ -103,6 +103,16 @@
         color: var(--background-critical);
         border: 1px solid var(--background-critical);
     }
+
+    &_secondary_transparent {
+        background-color: transparent;
+        color: var(--background-gray-light);
+    }
+
+    &_critical_transparent {
+        background-color: transparent;
+        color: var(--color-critical);
+    }
 }
 
 .is-wide {

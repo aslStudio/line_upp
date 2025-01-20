@@ -3,7 +3,7 @@ import {delay} from "@/shared/lib/time.ts";
 import {getRandomInt} from "@/shared/lib/number.ts";
 
 export const usersApi: UsersApi = {
-    getOrganizers: async () => {
+    getContacts: async () => {
         await delay()
 
         return {
@@ -11,14 +11,6 @@ export const usersApi: UsersApi = {
             payload: getList(),
         }
     },
-    getParticipants: async () => {
-        await delay()
-
-        return {
-            error: false,
-            payload: getList(),
-        }
-    }
 }
 
 function getList() {

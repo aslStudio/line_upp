@@ -68,6 +68,11 @@ import {
     NotificationsListPage,
     NotificationsPage
 } from "@/pages/NotificationsPage"
+import {
+    ProfilePage,
+    ViewerProfilePage,
+    EditProfilePage, ViewerSecurityPage,
+} from "@/pages/ProfilePage";
 
 import {NotificationListProvider} from "@/widgets/notification"
 
@@ -81,11 +86,17 @@ import {
     RootPaths,
     SchedulePaths,
     ProjectPaths,
-    CreateProjectPaths, NotificationPaths,
+    CreateProjectPaths, NotificationPaths, ProfilePaths, RecoveryPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
 import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
+import {
+    ResetPassword,
+    ResetPasswordCodePage,
+    ResetPasswordPhonePage,
+    ResetPasswordRepeatPage
+} from "@/pages/Auth/ResetPassword";
 
 export const RouterView = () => {
     const location = useLocation()
@@ -182,6 +193,23 @@ export const RouterView = () => {
                         <Route
                             path={RegistrationPaths.INFO}
                             element={<RegistrationInfoPage />}
+                        />
+                    </Route>
+                    <Route
+                        path={AuthPaths.RECOVERY}
+                        element={<ResetPassword />}
+                    >
+                        <Route
+                            path={RecoveryPaths.PHONE}
+                            element={<ResetPasswordPhonePage />}
+                        />
+                        <Route
+                            path={RecoveryPaths.CODE}
+                            element={<ResetPasswordCodePage />}
+                        />
+                        <Route
+                            path={RecoveryPaths.PASSWORD}
+                            element={<ResetPasswordRepeatPage />}
                         />
                     </Route>
                     <Route 
@@ -389,6 +417,27 @@ export const RouterView = () => {
                     <Route
                         path={NotificationPaths.ARCHIVE}
                         element={<NotificationsArchivePage />}
+                    />
+                </Route>
+                <Route
+                    path={RootPaths.PROFILE}
+                    element={(
+                        <PrivateRoute>
+                            <ProfilePage />
+                        </PrivateRoute>
+                    )}
+                >
+                    <Route
+                        path={ProfilePaths.VIEWER}
+                        element={<ViewerProfilePage />}
+                    />
+                    <Route
+                        path={ProfilePaths.UPDATE}
+                        element={<EditProfilePage />}
+                    />
+                    <Route
+                        path={ProfilePaths.SECURITY}
+                        element={<ViewerSecurityPage />}
                     />
                 </Route>
                 <Route 

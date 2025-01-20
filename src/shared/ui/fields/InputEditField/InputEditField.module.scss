@@ -1,0 +1,54 @@
+.root {
+    position: relative;
+
+    width: 100%;
+
+    padding: 8px 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+
+    color: var(--color-base);
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-secondary);
+
+    transition: 0.3s ease;
+    transition-property: border-color, color;
+}
+
+.label {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-placeholder);
+}
+
+.value {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-base);
+
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+}
+
+.save-button {
+    background: none;
+    outline: none;
+    border: none;
+
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--color-brand);
+    font-weight: 400;
+
+    img {
+        width: 20px;
+    }
+}

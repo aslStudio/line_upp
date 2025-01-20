@@ -15,11 +15,17 @@ export type ConfirmCodeParams = {
     random_code: string
 }
 
+export type ResetPasswordParams = {
+    password: string
+}
+
 export type AuthApi = {
     registration: (p: RegistrationParams) =>
         Promise<ResponseDefault<null>>
     sendCode: (params: SendCodeParams) =>
         Promise<ResponseDefault<null>>
     confirmCode: (params: ConfirmCodeParams) =>
+        Promise<ResponseDefault<null>>
+    resetPassword: (params: ResetPasswordParams) =>
         Promise<ResponseDefault<null>>
 }

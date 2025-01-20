@@ -1,12 +1,22 @@
 import {useCallback, useMemo} from "react"
 import {Link, useLocation} from "react-router-dom"
+import {createPortal} from "react-dom"
 
-import {CalendarPaths, NotificationPaths, RootPaths} from "@/shared/lib"
-import {Icon, IconProps} from "@/shared/ui/Icon"
+import {
+    CalendarPaths,
+    NotificationPaths,
+    ProfilePaths,
+    RootPaths
+} from "@/shared/lib"
+import {
+    Icon,
+    IconProps
+} from "@/shared/ui/Icon"
+import {
+    TransitionFade
+} from "@/shared/ui/TransitionFade"
 
 import styles from './TabBar.module.scss'
-import {TransitionFade} from "@/shared/ui/TransitionFade";
-import {createPortal} from "react-dom";
 
 const data: {
     id: RootPaths,
@@ -39,10 +49,10 @@ const data: {
         path: `${RootPaths.NOTIFICATION}/${NotificationPaths.LIST}`,
     },
     {
-        id: RootPaths.AUTH + '4' as RootPaths,
+        id: RootPaths.PROFILE,
         name: 'Профиль',
         icon: 'profile',
-        path: `${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`,
+        path: `${RootPaths.PROFILE}/${ProfilePaths.VIEWER}`,
     },
 ]
 

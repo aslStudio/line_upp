@@ -1,31 +1,41 @@
 import {ResponseDefault} from "@/shared/lib/api/createRequest.ts";
 
 export type GetViewerResponse = {
-    id: number,
-    access_level: {
-        id: number,
-        createdAt: string,
-        updatedAt: string,
-        name: string,
-        profile: number
-    }[],
-    user: {
-        username: string
-    },
-    name: string,
-    surname: string,
-    photo: string,
-    telegram: string,
-    telegram_chat_id: string,
-    info: string,
-    email: string,
-    personal_link: string,
-    personal_links: string[],
-    contacts: number[],
-    blocked_contacts: number[],
-    selected_events: number[]
+    id: number | string
+    phone: string
+    email: string
+    avatar: string
+    nickname: string
+    name: string
+    telegram: string
+    about: string
+    canBeFindByNickname: boolean
+    needReminding: boolean
+
+    isShowName: boolean
+    isShowPhone: boolean
+    isShowAbout: boolean
+    isShowEmail: boolean
+    isShowTelegram: boolean
 }
 
+export type PatchViewerParams = Partial<{
+    avatar: string
+    phone: string
+    email: string
+    nickname: string
+    name: string
+    telegram: string
+    about: string
+    canBeFindByNickname: boolean
+    needReminding: boolean
+}>
+
 export type ViewerApi = {
-    getViewer: () => Promise<ResponseDefault<GetViewerResponse>>
+    getViewer: () =>
+        Promise<ResponseDefault<GetViewerResponse>>
+    patchViewer: (p: PatchViewerParams) =>
+        Promise<ResponseDefault>
+    removeAccount: () =>
+        Promise<ResponseDefault>
 }

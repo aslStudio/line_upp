@@ -1,0 +1,34 @@
+.root {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+}

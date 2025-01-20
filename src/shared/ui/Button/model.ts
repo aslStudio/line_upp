@@ -16,5 +16,7 @@ export const views = [
     'secondary-flat',
     'critical',
     'critical-outline',
-    'critical-flat'
+    'critical-flat',
+    'secondary_transparent',
+    'critical_transparent'
 ] as const
