@@ -84,7 +84,15 @@ export const ProfileSettings: React.FC<PropsDefault> = ({
                         />
                     </div>
                 </div>
-                <div className={styles.row}>
+                <div
+                    className={styles.row}
+                    onClick={() => {
+                        navigate(
+                            RootPaths.PROFILE,
+                            ProfilePaths.CONTACTS,
+                        )
+                    }}
+                >
                     <img
                         className={styles.image}
                         src={images.Viewer.Contacts}

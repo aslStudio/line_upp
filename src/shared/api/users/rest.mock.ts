@@ -11,6 +11,17 @@ export const usersApi: UsersApi = {
             payload: getList(),
         }
     },
+    getUsers: async ({ search }) => {
+        await delay()
+
+        return {
+            error: false,
+            payload: {
+                contacts: getList(),
+                global: search ? getList() : []
+            }
+        }
+    }
 }
 
 function getList() {

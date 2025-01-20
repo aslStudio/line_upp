@@ -71,7 +71,7 @@ import {
 import {
     ProfilePage,
     ViewerProfilePage,
-    EditProfilePage, ViewerSecurityPage,
+    EditProfilePage, ViewerSecurityPage, ViewerContacts,
 } from "@/pages/ProfilePage";
 
 import {NotificationListProvider} from "@/widgets/notification"
@@ -438,6 +438,10 @@ export const RouterView = () => {
                     <Route
                         path={ProfilePaths.SECURITY}
                         element={<ViewerSecurityPage />}
+                    />
+                    <Route
+                        path={ProfilePaths.CONTACTS}
+                        element={<ViewerContacts />}
                     />
                 </Route>
                 <Route 

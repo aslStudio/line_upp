@@ -14,7 +14,7 @@ import {projectExpandModel, projectsListModel} from "@/entities/projects/model"
 import {viewerModel} from "@/entities/viewer/model"
 import {scheduleExpandModel, scheduleListModel} from "@/entities/schedule/model"
 import {searchAddressModel} from "@/entities/address/model"
-import {organizersSearchModel, participantsSearchModel} from "@/entities/user/model"
+import {contactsSearchModel, organizersSearchModel, participantsSearchModel} from "@/entities/user/model"
 import {notificationArchiveModel, notificationListModel} from "@/entities/notification/model";
 
 const store = configureStore({
@@ -61,6 +61,8 @@ const store = configureStore({
 
         notificationList: notificationListModel.reducer,
         notificationArchiveList: notificationArchiveModel.reducer,
+
+        contactsSearch: contactsSearchModel.reducers,
     }
 })
 

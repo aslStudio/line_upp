@@ -86,4 +86,5 @@ export enum ProfilePaths {
     VIEWER = 'viewer',
     UPDATE = 'update',
     SECURITY = 'security',
+    CONTACTS = 'contacts',
 }
