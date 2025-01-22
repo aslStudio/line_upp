@@ -41,6 +41,7 @@ type InitialState = {
     errors: {
         name: boolean
         organizers: boolean,
+        participants: boolean
     },
     creatingState: RequestState
     updatingState: RequestState
@@ -68,6 +69,7 @@ const initialState: InitialState = {
     errors: {
         name: false,
         organizers: false,
+        participants: false
     },
     creatingState: 'idle',
     updatingState: 'idle'
@@ -170,6 +172,7 @@ export function validateProject(data: InitialState['data']) {
     return {
         name: !data.name,
         organizers: !data.organizers.length,
+        participants: !data.participants.length
     }
 }
 

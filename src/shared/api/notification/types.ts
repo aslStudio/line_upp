@@ -49,6 +49,39 @@ export type SendParticipationParams = {
     id: Notification['id']
 }
 
+export type GetNotificationsSettings = {
+    /** Уведомления от приложения */
+    fromApp: boolean
+    /** Напоминание о событии */
+    aboutEvent: boolean
+    /** Пользователь подтвердил событие */
+    userSubmitEvent: boolean
+
+    /** Приглашение в расписание */
+    inviteInSchedule: boolean
+    /** Приглашение в событие */
+    inviteInEvent: boolean
+    /** Изменение в событии */
+    scheduleEventChanged: boolean
+    /** Отмена события */
+    eventCanceled: boolean
+    /** Новое открытое событие */
+    newPublicEvent: boolean
+
+    /** Новая заявка */
+    newOrder: boolean
+    /** Изменение в событии */
+    projectEventChanged: boolean
+    /** Пользователь отказался от участия */
+    userRejectFromParticipation: boolean
+    /** Пользователь покинул проект */
+    userLeaveProject: boolean
+    /** Пользователь вступил в проект */
+    userJoinedProject: boolean
+}
+
+export type UpdateNotificationSettingsParams = Partial<GetNotificationsSettings>
+
 export type NotificationApi = {
     getNotifications: (p: GetNotificationsParams) =>
         Promise<ResponseDefault<GetNotificationsResponse>>
@@ -63,5 +96,9 @@ export type NotificationApi = {
     submitParticipation: (p: SubmitParticipationParams) =>
         Promise<ResponseDefault>
     sendParticipation: (p: SendParticipationParams) =>
+        Promise<ResponseDefault>
+    getNotificationsSettings: () =>
+        Promise<ResponseDefault<GetNotificationsSettings>>
+    updateNotificationSettings: (p: UpdateNotificationSettingsParams) =>
         Promise<ResponseDefault>
 }

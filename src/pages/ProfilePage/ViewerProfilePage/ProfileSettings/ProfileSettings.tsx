@@ -4,7 +4,7 @@ import {clsx} from "clsx"
 import {usePatchViewer} from "@/features/viewer/hooks"
 import {useThemeProvider} from "@/shared/lib/providers"
 
-import {ProfilePaths, PropsDefault, RootPaths} from "@/shared/lib"
+import {FAQPaths, ProfilePaths, PropsDefault, RootPaths} from "@/shared/lib"
 
 import styles from './ProfileSettings.module.scss'
 import {CardToggle} from "@/shared/ui/CardToggle";
@@ -113,7 +113,15 @@ export const ProfileSettings: React.FC<PropsDefault> = ({
                         />
                     </div>
                 </div>
-                <div className={styles.row}>
+                <div
+                    className={styles.row}
+                    onClick={() => {
+                        navigate(
+                            RootPaths.FAQ,
+                            FAQPaths.MAIN,
+                        )
+                    }}
+                >
                     <img
                         className={styles.image}
                         src={images.Viewer.Support}

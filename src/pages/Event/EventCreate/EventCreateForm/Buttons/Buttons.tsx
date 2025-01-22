@@ -30,7 +30,7 @@ export const Buttons = () => {
                 ...data,
                 color: data.color!.id,
                 project: data.project!.id,
-                subgroup: data.subgroup!.id,
+                subgroup: data.subgroup ? data.subgroup.id : null,
                 address: data.address!
             }))
         }

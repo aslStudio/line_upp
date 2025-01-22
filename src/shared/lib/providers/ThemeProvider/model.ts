@@ -1,7 +1,7 @@
 import { Theme } from './types'
 
 const THEME_STORAGE_NAME = 'THEME'
-const IS_THEME_MODE = false
+const IS_THEME_MODE = true
 
 export function getUserTheme(): Theme {
     const savedTheme = window.localStorage.getItem(THEME_STORAGE_NAME)

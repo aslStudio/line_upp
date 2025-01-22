@@ -37,7 +37,8 @@ export const Participants = () => {
     const { navigate } = useProjectNavigate()
 
     const {
-        data
+        data,
+         errors
     } = useSelector((state: RootState) => state.createProject)
     const dispatch = useDispatch<AppDispatch>()
 
@@ -99,6 +100,11 @@ export const Participants = () => {
             >
                 Добавить
             </ButtonCell>
+            <TransitionFade>
+                {errors.participants && (
+                    <p className={styles.error}>Укажите участников</p>
+                )}
+            </TransitionFade>
         </div>
     )
 }

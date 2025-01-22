@@ -53,6 +53,17 @@ export const NotificationHeader = () => {
         )
     }, [location])
 
+    const isHeader = useMemo(() => {
+        return (
+            location.pathname.includes(`${RootPaths.NOTIFICATION}/${NotificationPaths.LIST}`) ||
+            location.pathname.includes(`${RootPaths.NOTIFICATION}/${NotificationPaths.ARCHIVE}`)
+        )
+    }, [location])
+
+    if (!isHeader) {
+        return null
+    }
+
     return (
         <div className={styles.root}>
             <div className={styles.header}>
@@ -62,6 +73,12 @@ export const NotificationHeader = () => {
                         {isList && (
                             <button
                                 className={styles['settings-button']}
+                                onClick={() => {
+                                    navigate(
+                                        RootPaths.NOTIFICATION,
+                                        NotificationPaths.SETTINGS,
+                                    )
+                                }}
                             >
                                 Настроить
                             </button>

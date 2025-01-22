@@ -222,7 +222,7 @@ export function validateEvent(data: InitialState['data']) {
         color: !data.color,
         organizers: !data.organizers.length,
         participants: !data.participants.length,
-        project: data.id ? !data.project : false,
+        project: !data.project,
     }
 }
 

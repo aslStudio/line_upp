@@ -12,6 +12,7 @@ import {Input} from "@/shared/ui/fields/Input"
 import {Button} from "@/shared/ui/Button"
 
 import styles from './Password.module.scss'
+import {TransitionExpand} from "@/shared/ui/TransitionExpand";
 
 export const ResetPasswordRepeatPage = () => {
     const { navigate } = useProjectNavigate()
@@ -41,6 +42,7 @@ export const ResetPasswordRepeatPage = () => {
         }
         if (resetState === 'success') {
             setIsError(false)
+            dispatch(resetPasswordModel.actions.reset())
             navigate(
                 RootPaths.PROFILE,
                 ProfilePaths.VIEWER
@@ -66,6 +68,7 @@ export const ResetPasswordRepeatPage = () => {
                 className={styles.field}
                 value={repeatPassword}
                 isError={isError}
+
                 placeholder={'Повторите пароль'}
                 type={'password'}
                 setValue={v => {
@@ -73,6 +76,9 @@ export const ResetPasswordRepeatPage = () => {
                     dispatch(resetPasswordModel.actions.updateRepeatPassword(v))
                 }}
             />
+            <TransitionExpand isShow={isError}>
+                <p className={styles.error}>Пароли не совпадают</p>
+            </TransitionExpand>
             <Button
                 className={styles.button}
                 isLoading={resetState === 'pending'}

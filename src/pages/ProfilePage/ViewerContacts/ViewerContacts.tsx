@@ -92,7 +92,7 @@ export const ViewerContacts = () => {
                             onClick={() => {
                             }}
                         >
-                            Одноразовая ссылка приглашени
+                            Одноразовая ссылка приглашение
                         </Button>
                         <button
                             className={styles['blocked-contacts']}

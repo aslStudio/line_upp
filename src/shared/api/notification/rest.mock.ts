@@ -62,6 +62,36 @@ export const notificationApi: NotificationApi = {
             payload: null
         }
     },
+    getNotificationsSettings: async () => {
+        await delay()
+
+        return {
+            error: false,
+            payload: {
+                fromApp: !!getRandomInt(0, 1),
+                aboutEvent: !!getRandomInt(0, 1),
+                userSubmitEvent: !!getRandomInt(0, 1),
+                inviteInSchedule: !!getRandomInt(0, 1),
+                inviteInEvent: !!getRandomInt(0, 1),
+                scheduleEventChanged: !!getRandomInt(0, 1),
+                eventCanceled: !!getRandomInt(0, 1),
+                newPublicEvent: !!getRandomInt(0, 1),
+                newOrder: !!getRandomInt(0, 1),
+                projectEventChanged: !!getRandomInt(0, 1),
+                userRejectFromParticipation: !!getRandomInt(0, 1),
+                userLeaveProject: !!getRandomInt(0, 1),
+                userJoinedProject: !!getRandomInt(0, 1),
+            }
+        }
+    },
+    updateNotificationSettings: async () => {
+        await delay()
+
+        return {
+            error: false,
+            payload: null
+        }
+    }
 }
 
 function getList(page: number) {

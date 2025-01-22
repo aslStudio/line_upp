@@ -51,7 +51,7 @@ export const Project = () => {
         <div className={styles.root}>
             <p className={styles.title}>Проект</p>
             <TransitionFade>
-                {errors.color && (
+                {errors.project && (
                     <p className={styles.error}>Укажите проект, либо создайте личное событие</p>
                 )}
             </TransitionFade>

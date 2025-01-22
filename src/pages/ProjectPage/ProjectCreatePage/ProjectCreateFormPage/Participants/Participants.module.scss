@@ -25,3 +25,14 @@
 .tabs {
     margin-bottom: 16px;
 }
+
+.error {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--color-critical);
+}

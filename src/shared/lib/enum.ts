@@ -9,6 +9,7 @@ export enum RootPaths {
     NOTIFICATION = '/notification',
     PROFILE = '/profile',
     USER = '/user',
+    FAQ = '/faq',
     ANOTHER = '*',
 }
 
@@ -81,6 +82,7 @@ export enum CreateProjectPaths {
 export enum NotificationPaths {
     LIST = 'list',
     ARCHIVE = 'archive',
+    SETTINGS = 'settings',
 }
 
 export enum ProfilePaths {
@@ -93,4 +95,9 @@ export enum ProfilePaths {
 export enum UserPaths {
     SHOW = ':id',
     BLOCKED = 'blocked',
+}
+
+export enum FAQPaths {
+    MAIN = 'main',
+    LIST = 'list'
 }

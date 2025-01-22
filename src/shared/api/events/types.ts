@@ -214,7 +214,7 @@ export type CreateEventParams = {
         avatar: string
     }[]
     project: number | string
-    subgroup: number | string
+    subgroup: number | string | null
     participants: {
         id: number | string
         name: string

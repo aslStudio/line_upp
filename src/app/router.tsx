@@ -66,7 +66,7 @@ import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/Proje
 import {
     NotificationsArchivePage,
     NotificationsListPage,
-    NotificationsPage
+    NotificationsPage, NotificationsSettingsPage
 } from "@/pages/NotificationsPage"
 import {
     ProfilePage,
@@ -79,7 +79,16 @@ import {
     ResetPasswordPhonePage,
     ResetPasswordRepeatPage
 } from "@/pages/Auth/ResetPassword";
-import {BlockedUsersPage, UserPage, UserShowPage} from "@/pages/UserPage";
+import {
+    BlockedUsersPage,
+    UserPage,
+    UserShowPage
+} from "@/pages/UserPage";
+import {
+    FaqList,
+    FaqMain,
+    FaqPage
+} from "@/pages/Faq"
 
 import {NotificationListProvider} from "@/widgets/notification"
 
@@ -97,7 +106,7 @@ import {
     NotificationPaths,
     ProfilePaths,
     RecoveryPaths,
-    UserPaths,
+    UserPaths, FAQPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
@@ -423,6 +432,10 @@ export const RouterView = () => {
                         path={NotificationPaths.ARCHIVE}
                         element={<NotificationsArchivePage />}
                     />
+                    <Route
+                        path={NotificationPaths.SETTINGS}
+                        element={<NotificationsSettingsPage />}
+                    />
                 </Route>
                 <Route
                     path={RootPaths.PROFILE}
@@ -464,6 +477,19 @@ export const RouterView = () => {
                     <Route
                         path={UserPaths.BLOCKED}
                         element={<BlockedUsersPage />}
+                    />
+                </Route>
+                <Route
+                    path={RootPaths.FAQ}
+                    element={<FaqPage />}
+                >
+                    <Route
+                        path={FAQPaths.MAIN}
+                        element={<FaqMain />}
+                    />
+                    <Route
+                        path={FAQPaths.LIST}
+                        element={<FaqList />}
                     />
                 </Route>
                 <Route 

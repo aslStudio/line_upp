@@ -21,7 +21,11 @@ import {
     expandUserModel,
     blockedUsersModel
 } from "@/entities/user/model"
-import {notificationArchiveModel, notificationListModel} from "@/entities/notification/model";
+import {
+    notificationArchiveModel,
+    notificationListModel,
+    notificationSettingsModel
+} from "@/entities/notification/model";
 
 const store = configureStore({
     reducer: {
@@ -67,6 +71,7 @@ const store = configureStore({
 
         notificationList: notificationListModel.reducer,
         notificationArchiveList: notificationArchiveModel.reducer,
+        notificationSettings: notificationSettingsModel.reducer,
 
         contactsSearch: contactsSearchModel.reducers,
         expandUser: expandUserModel.reducer,
