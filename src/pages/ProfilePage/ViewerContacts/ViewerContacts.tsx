@@ -1,4 +1,6 @@
+import {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
+import {createPortal} from "react-dom"
 
 import {AppDispatch, RootState} from "@/app/store.tsx"
 
@@ -7,11 +9,15 @@ import {UserCell, UserCellList} from "@/entities/user/ui"
 
 import {InputSearch} from "@/shared/ui/fields/InputSearch"
 import {TransitionFade} from "@/shared/ui/TransitionFade"
+import {Button} from "@/shared/ui/Button"
+import {RootPaths, UserPaths} from "@/shared/lib"
+import {useProjectNavigate} from "@/shared/lib/hooks"
 
 import styles from './ViewerContacts.module.scss'
-import {useEffect} from "react";
 
 export const ViewerContacts = () => {
+    const { navigate } = useProjectNavigate()
+
     const {
         searchValue,
         contacts,
@@ -52,6 +58,12 @@ export const ViewerContacts = () => {
                                     render={item => (
                                         <UserCell
                                             {...item}
+                                            onClick={id => {
+                                                navigate(
+                                                    RootPaths.USER,
+                                                    `${id}`,
+                                                )
+                                            }}
                                         />
                                     )}
                                     list={contacts}
@@ -73,6 +85,29 @@ export const ViewerContacts = () => {
                         </>
                     )}
                 </TransitionFade>
+                {createPortal(
+                    <div className={styles.buttons}>
+                        <Button
+                            view={'brand-outline'}
+                            onClick={() => {
+                            }}
+                        >
+                            Одноразовая ссылка приглашени
+                        </Button>
+                        <button
+                            className={styles['blocked-contacts']}
+                            onClick={() => {
+                                navigate(
+                                    RootPaths.USER,
+                                    UserPaths.BLOCKED
+                                )
+                            }}
+                        >
+                            Заблокированные контакты
+                        </button>
+                    </div>,
+                    document.body
+                )}
             </div>
         </div>
     )

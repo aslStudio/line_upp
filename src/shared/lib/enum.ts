@@ -8,6 +8,7 @@ export enum RootPaths {
     EVENTS = '/events',
     NOTIFICATION = '/notification',
     PROFILE = '/profile',
+    USER = '/user',
     ANOTHER = '*',
 }
 
@@ -87,4 +88,9 @@ export enum ProfilePaths {
     UPDATE = 'update',
     SECURITY = 'security',
     CONTACTS = 'contacts',
+}
+
+export enum UserPaths {
+    SHOW = ':id',
+    BLOCKED = 'blocked',
 }

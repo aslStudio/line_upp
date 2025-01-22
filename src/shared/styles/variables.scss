@@ -40,6 +40,7 @@
     --color-red-dark: #982A2A;
     --color-orange: #FF6D33;
     --color-gray-alpha: rgba(140, 140, 151, 0.3);
+    --color-hint: #575757;
 
     --border-secondary: #333337;
     --border-critical: #FF3333;
@@ -53,17 +54,17 @@
 :root[data-theme="light"] {
     --background-base: #FFFFFF;
     --background-white: #FFFFFF;
-    --background-base-dark: #1C1C1E;
-    --background-secondary: #acacac;
-    --background-gray-light: #666666;
+    --background-base-dark: #F8F8F8;
+    --background-secondary: #F4F4F4;
+    --background-gray-light: #F4F4F4;
     --background-brand: #219653;
     --background-critical: #FF3333;
     --background-disabled: #444444;
-    --background-inactive: #373737;
+    --background-inactive: #FFFFFF;
     --background-secondary-alpha: rgba(118, 118, 128, 0.24);
     --background-secondary-alpha-dark: rgba(120, 120, 128, 0.32);
-    --background-secondary-light: #636366;
-    --background-calendar-card: #343434;
+    --background-secondary-light: #FFFFFF;
+    --background-calendar-card: #F8F8F8;
     --background-calendar-card-dark: #2D2C2C;
     --background-red-dark: #2B1B1B;
     --background-blue: #0A84FF;
@@ -77,22 +78,23 @@
     --color-success: #4BCA81;
     --color-red: #FF3030;
     --color-disabled: #939393;
-    --color-dark: #1E1E1E;
-    --color-secondary-light: #A1A2A2;
+    --color-dark: #FFFFFF;
+    --color-secondary-light: #666666;
     --color-gray: #9F9F9F;
     --color-gray-light: #EEEEEE;
     --color-blue: #33B6FF;
     --color-green: #33FFAA;
-    --color-base-alpha: rgba(255, 255, 255, 0.64);
+    --color-base-alpha: rgba(0, 0, 0, 0.64);
     --color-red-dark: #982A2A;
     --color-orange: #FF6D33;
     --color-gray-alpha: rgba(140, 140, 151, 0.3);
+    --color-hint: #575757;
 
     --border-secondary: #D4D4D4;
     --border-critical: #FF3333;
     --border-flat: #48484A;
     --border-secondary-alpha: rgba(102, 102, 102, 0.1);
-    --border-gray: #232323;
-    --border-base-alpha: rgba(255, 255, 255, 0.05);
-    --border-gray-light: #323232;
+    --border-gray: #FFFFFF;
+    --border-base-alpha: rgba(0, 0, 0, 0.05);
+    --border-gray-light: #F2F2F2;
 }

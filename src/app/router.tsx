@@ -73,6 +73,13 @@ import {
     ViewerProfilePage,
     EditProfilePage, ViewerSecurityPage, ViewerContacts,
 } from "@/pages/ProfilePage";
+import {
+    ResetPassword,
+    ResetPasswordCodePage,
+    ResetPasswordPhonePage,
+    ResetPasswordRepeatPage
+} from "@/pages/Auth/ResetPassword";
+import {BlockedUsersPage, UserPage, UserShowPage} from "@/pages/UserPage";
 
 import {NotificationListProvider} from "@/widgets/notification"
 
@@ -86,17 +93,15 @@ import {
     RootPaths,
     SchedulePaths,
     ProjectPaths,
-    CreateProjectPaths, NotificationPaths, ProfilePaths, RecoveryPaths,
+    CreateProjectPaths,
+    NotificationPaths,
+    ProfilePaths,
+    RecoveryPaths,
+    UserPaths,
 } from "@/shared/lib"
 import { tokenModel } from "@/shared/model"
 import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
 import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
-import {
-    ResetPassword,
-    ResetPasswordCodePage,
-    ResetPasswordPhonePage,
-    ResetPasswordRepeatPage
-} from "@/pages/Auth/ResetPassword";
 
 export const RouterView = () => {
     const location = useLocation()
@@ -442,6 +447,23 @@ export const RouterView = () => {
                     <Route
                         path={ProfilePaths.CONTACTS}
                         element={<ViewerContacts />}
+                    />
+                </Route>
+                <Route
+                    path={RootPaths.USER}
+                    element={(
+                        <PrivateRoute>
+                            <UserPage />
+                        </PrivateRoute>
+                    )}
+                >
+                    <Route
+                        path={UserPaths.SHOW}
+                        element={<UserShowPage />}
+                    />
+                    <Route
+                        path={UserPaths.BLOCKED}
+                        element={<BlockedUsersPage />}
                     />
                 </Route>
                 <Route 

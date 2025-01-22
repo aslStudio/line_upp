@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list {
+    width: 100%;
+}
+
+.title {
+    font-size: 22px;
+    line-height: 28px;
+    color: var(--color-base);
+    font-weight: 600;
+
+    padding-top: 8px;
+    padding-bottom: 24px;
+}
