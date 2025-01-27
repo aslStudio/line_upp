@@ -12,6 +12,7 @@ import {Button} from "@/shared/ui/Button"
 import {AuthPaths, formatPhoneNumber, RegistrationPaths, RootPaths} from "@/shared/lib"
 
 import styles from './Code.module.scss'
+import {images} from "@/shared/assets/images";
 
 export const RegistrationCodePage = () => {
     const { navigate } = useProjectNavigate()
@@ -69,6 +70,7 @@ export const RegistrationCodePage = () => {
         <AuthLayout
             title={'Введите код из SMS'}
             description={`Код был отправлен на номер ${formatPhoneNumber(phone)}`}
+            img={images.Auth.Login}
         >
             <InputCode
                 value={code}

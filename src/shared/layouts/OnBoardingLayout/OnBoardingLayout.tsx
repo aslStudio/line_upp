@@ -13,7 +13,7 @@ const OnBoardingLayoutComponent: React.FC<OnBoardingLayoutProps> = ({
     description,
     img
 }) => (
-    <div>
+    <div className={styles.root}>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.description}>{description}</p>
         <img

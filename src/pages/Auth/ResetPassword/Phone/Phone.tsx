@@ -12,6 +12,7 @@ import { useProjectNavigate } from "@/shared/lib/hooks"
 import {AuthPaths, RecoveryPaths, RootPaths} from "@/shared/lib"
 
 import styles from './Phone.module.scss'
+import {images} from "@/shared/assets/images";
 
 export const ResetPasswordPhonePage = () => {
     const { navigate } = useProjectNavigate()
@@ -47,6 +48,7 @@ export const ResetPasswordPhonePage = () => {
         <AuthLayout
             title={'Восстановления пароля'}
             description={'Введите номер телефона, к которому  привязан аккаунт. На него придёт  код подтверждения'}
+            img={images.Auth.Login}
         >
             <Input
                 value={phone}

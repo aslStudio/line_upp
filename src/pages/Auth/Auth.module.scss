@@ -14,12 +14,14 @@
     height: 100%;
 }
 
-@include media-desktop() {
+@include media-tablet() {
     .wrapper {
         background-color: var(--background-secondary);
         border-radius: 40px;
 
-        width: 1000px;
-        height: 498px;
+        width: calc(100% - 40px);
+        max-width: 1000px;
+        min-height: 498px;
+        height: fit-content;
     }
 }

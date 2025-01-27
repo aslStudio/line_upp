@@ -8,6 +8,7 @@ import {AuthLayout} from "@/shared/layouts";
 import {InputCode} from "@/shared/ui/fields/InputCode";
 import {Button} from "@/shared/ui/Button";
 import styles from "./Code.module.scss";
+import {images} from "@/shared/assets/images";
 
 export const ResetPasswordCodePage = () => {
     const { navigate } = useProjectNavigate()
@@ -65,6 +66,7 @@ export const ResetPasswordCodePage = () => {
         <AuthLayout
             title={'Введите код из SMS'}
             description={`Код был отправлен на номер ${formatPhoneNumber(phone)}`}
+            img={images.Auth.Login}
         >
             <InputCode
                 value={code}

@@ -11,9 +11,10 @@ import {useProjectNavigate} from "@/shared/lib/hooks";
 import {AuthLayout} from "@/shared/layouts"
 import {Input} from "@/shared/ui/fields/Input"
 import {Button} from "@/shared/ui/Button"
-import {AuthPaths, CalendarPaths, OnBoardingPaths, RegistrationPaths, RootPaths} from "@/shared/lib"
+import {AuthPaths, CalendarPaths, OnBoardingPaths, RecoveryPaths, RegistrationPaths, RootPaths} from "@/shared/lib"
 
 import styles from './Login.module.scss'
+import {images} from "@/shared/assets/images";
 
 export const Login = () => {
     const { navigate } = useProjectNavigate()
@@ -63,6 +64,7 @@ export const Login = () => {
         <AuthLayout
             title={'Вход'}
             description={'Введите номер телефона и пароль'}
+            img={images.Auth.Login}
         >
             <Input
                 className={styles.field}
@@ -88,7 +90,7 @@ export const Login = () => {
             />
             <Link
                 className={styles.recovery}
-                to={`${RootPaths.AUTH}/${AuthPaths.RECOVERY}`}
+                to={`${RootPaths.AUTH}/${AuthPaths.RECOVERY}/${RecoveryPaths.PHONE}`}
             >
                 Забыли пароль?
             </Link>

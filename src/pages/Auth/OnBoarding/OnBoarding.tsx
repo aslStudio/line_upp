@@ -8,6 +8,7 @@ import {useProjectNavigate} from "@/shared/lib/hooks"
 
 import styles from './OnBoarding.module.scss'
 import {onBoardingModel} from "@/shared/model";
+import {images} from "@/shared/assets/images";
 
 export const OnBoarding = () => {
     const { navigate } = useProjectNavigate()
@@ -32,6 +33,19 @@ export const OnBoarding = () => {
         }
 
         return 'Далее'
+    }, [index])
+
+    const image = useMemo(() => {
+        switch (index) {
+            case 1:
+                return images.OnBoarding.Desktop.Calendar
+            case 2:
+                return images.OnBoarding.Desktop.Projects
+            case 3:
+                return images.OnBoarding.Desktop.Participants
+            case 4:
+                return images.OnBoarding.Desktop.Save
+        }
     }, [index])
 
     const onClick = useCallback(() => {
@@ -69,27 +83,34 @@ export const OnBoarding = () => {
 
     return (
         <div className={styles.root}>
-            <p className={styles.counter}>
-                {index}<span>/4</span>
-            </p>
-            <TransitionFade>
-                <Outlet />
-            </TransitionFade>
-            <div className={styles.footer}>
-                <Button
-                    onClick={onClick}
-                >
-                    {buttonText}
-                </Button>
-                <Link
-                    className={styles.skip}
-                    to={`${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`}
-                    onClick={() => {
-                        onBoardingModel.setIsOnBoarding()
-                    }}
-                >
-                    Пропустить
-                </Link>
+            <img
+                className={styles.image}
+                src={image}
+                alt={'decoration'}
+            />
+            <div className={styles.wrapper}>
+                <p className={styles.counter}>
+                    {index}<span>/4</span>
+                </p>
+                <TransitionFade>
+                    <Outlet/>
+                </TransitionFade>
+                <div className={styles.footer}>
+                    <Button
+                        onClick={onClick}
+                    >
+                        {buttonText}
+                    </Button>
+                    <Link
+                        className={styles.skip}
+                        to={`${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`}
+                        onClick={() => {
+                            onBoardingModel.setIsOnBoarding()
+                        }}
+                    >
+                        Пропустить
+                    </Link>
+                </div>
             </div>
         </div>
     )

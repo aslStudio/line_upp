@@ -12,6 +12,7 @@ import {AuthPaths, RegistrationPaths, RootPaths} from "@/shared/lib"
 import {useProjectNavigate} from "@/shared/lib/hooks"
 
 import styles from './Phone.module.scss'
+import {images} from "@/shared/assets/images";
 
 export const RegistrationPhonePage = () => {
     const { navigate } = useProjectNavigate()
@@ -47,6 +48,7 @@ export const RegistrationPhonePage = () => {
         <AuthLayout
             title={'Номер телефона'}
             description={'На него придёт код подтверждения'}
+            img={images.Auth.Login}
         >
             <Input
                 value={phone}

@@ -54,6 +54,7 @@ export const RegistrationInfoPage = () => {
             title={'Данные для связи'}
             description={'Будут отображаться в вашем профиле'}
             offsetTop={'s'}
+            img={images.Auth.Login}
         >
             <img
                 className={styles.icon}

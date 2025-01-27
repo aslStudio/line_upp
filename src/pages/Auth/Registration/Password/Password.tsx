@@ -12,6 +12,7 @@ import {useProjectNavigate} from "@/shared/lib/hooks"
 import {AuthPaths, RegistrationPaths, RootPaths} from "@/shared/lib"
 
 import styles from './Password.module.scss'
+import {images} from "@/shared/assets/images";
 
 export const RegistrationPasswordPage = () => {
     const { navigate } = useProjectNavigate()
@@ -43,6 +44,7 @@ export const RegistrationPasswordPage = () => {
         <AuthLayout
             title={'Пароль'}
             description={'Будет использоваться для входа'}
+            img={images.Auth.Login}
         >
             <Input
                 className={styles.field}

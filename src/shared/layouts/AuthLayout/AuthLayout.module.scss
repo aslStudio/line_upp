@@ -1,26 +1,30 @@
-.root {
-    position: fixed;
-    top: 0;
-    left: 0;
+@use "@/shared/styles/mixins" as *;
 
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
+@include media-max-mobile() {
+    .root {
+        position: fixed;
+        top: 0;
+        left: 0;
 
-    padding-left: 16px;
-    padding-right: 16px;
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
 
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
+        padding-left: 16px;
+        padding-right: 16px;
 
-.offset-top {
-    &_s {
-        padding-top: 40px;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
-    &_m {
-        padding-top: 120px;
+    .offset-top {
+        &_s {
+            padding-top: 40px;
+        }
+
+        &_m {
+            padding-top: 120px;
+        }
     }
 }
 
@@ -48,4 +52,59 @@
 .wrapper {
     width: 100%;
     margin-top: 20px;
+}
+
+@include media-tablet() {
+    .root {
+        padding-top: 90px;
+    }
+
+    .title {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .description {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .wrapper {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@include media-max-desktop() {
+    .image {
+        display: none;
+    }
+}
+
+@include media-desktop() {
+    .root {
+        display: flex;
+        justify-content: center;
+        gap: 53px;
+        min-height: 498px;
+        height: fit-content;
+        box-sizing: border-box;
+    }
+
+    .title,
+    .description {
+        padding-left: 0;
+    }
+    .wrapper {
+        width: 100%;
+    }
+
+    .container {
+        width: 335px;
+    }
+
+    .image {
+        width: 302px;
+    }
 }

@@ -13,6 +13,7 @@ import {Button} from "@/shared/ui/Button"
 
 import styles from './Password.module.scss'
 import {TransitionExpand} from "@/shared/ui/TransitionExpand";
+import {images} from "@/shared/assets/images";
 
 export const ResetPasswordRepeatPage = () => {
     const { navigate } = useProjectNavigate()
@@ -54,6 +55,7 @@ export const ResetPasswordRepeatPage = () => {
         <AuthLayout
             title={'Пароль'}
             description={'Будет использоваться для входа'}
+            img={images.Auth.Login}
         >
             <Input
                 className={styles.field}
