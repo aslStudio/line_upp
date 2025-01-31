@@ -1,0 +1,104 @@
+@use "@/shared/styles/mixins" as *;
+
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 30px 16px 20px;
+    background-color: var(--background-base);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 57px;
+    gap: 16px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-top: 7px;
+    min-height: 57px;
+
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: var(--background-secondary);
+    min-height: 57px;
+    max-height: 57px;
+    border-radius: 12px;
+}
+
+.logo {
+    margin-left: 40px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+    margin-right: 40px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+.listNav {
+    display: flex;
+    flex-direction: row;
+
+    @include media-tablet {
+        gap: 28px
+    }
+
+    @include media-desktop {
+        gap: 48px;
+    }
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    height: 40px;
+    text-decoration: none;
+
+    & p {
+        font-size: 14px;
+        line-height: 12px;
+        color: var(--color-placeholder);
+        text-align: center;
+    }
+
+    .selected {
+        color: var(--background-brand);
+    }
+
+    @include media-tablet {
+        flex-direction: column;
+    }
+
+    @include media-desktop {
+        flex-direction: row;
+    }
+}
+
+.notices {
+    min-height: 57px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-secondary);
+
+}

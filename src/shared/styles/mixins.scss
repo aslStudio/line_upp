@@ -33,3 +33,21 @@
         @content;
     }
 }
+
+@mixin custom-scrollbar($width: 0px, $height: 0px) {
+
+    // Yandex Chrome
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $height;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--background-gray-light);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}

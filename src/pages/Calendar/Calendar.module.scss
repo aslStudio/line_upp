@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     display: flex;
     flex-direction: column;
@@ -9,6 +11,13 @@
     padding-bottom: 100px;
     box-sizing: border-box;
 
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
+
+    @include media-tablet {
+        padding-top: 237px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+
+    @include custom-scrollbar();
 }

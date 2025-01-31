@@ -1,83 +1,85 @@
-import {useCallback, useMemo} from "react"
-import {Link, useLocation} from "react-router-dom"
-import {createPortal} from "react-dom"
+import { useCallback, useMemo } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { createPortal } from "react-dom";
 
 import {
     CalendarPaths,
     NotificationPaths,
     ProfilePaths,
-    RootPaths
-} from "@/shared/lib"
-import {
-    Icon,
-    IconProps
-} from "@/shared/ui/Icon"
-import {
-    TransitionFade
-} from "@/shared/ui/TransitionFade"
+    RootPaths,
+} from "@/shared/lib";
+import { Icon, IconProps } from "@/shared/ui/Icon";
+import { TransitionFade } from "@/shared/ui/TransitionFade";
 
-import styles from './TabBar.module.scss'
+import styles from "./TabBar.module.scss";
+import { useScreen } from "@/shared/lib/providers/ScreenProvider";
 
 const data: {
-    id: RootPaths,
-    name: string
-    icon: IconProps['name']
-    path: string
+    id: RootPaths;
+    name: string;
+    icon: IconProps["name"];
+    path: string;
 }[] = [
     {
         id: RootPaths.CALENDAR,
-        name: 'Календарь',
-        icon: 'calendar',
+        name: "Календарь",
+        icon: "calendar",
         path: `${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
         id: RootPaths.SCHEDULE_CALENDAR,
-        name: 'Расписание',
-        icon: 'star',
+        name: "Расписание",
+        icon: "star",
         path: `${RootPaths.SCHEDULE_CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
         id: RootPaths.PROJECT_CALENDAR,
-        name: 'Проекты',
-        icon: 'people',
+        name: "Проекты",
+        icon: "people",
         path: `${RootPaths.PROJECT_CALENDAR}/${CalendarPaths.WEEK}`,
     },
     {
         id: RootPaths.NOTIFICATION,
-        name: 'Уведомления',
-        icon: 'notifications',
+        name: "Уведомления",
+        icon: "notifications",
         path: `${RootPaths.NOTIFICATION}/${NotificationPaths.LIST}`,
     },
     {
         id: RootPaths.PROFILE,
-        name: 'Профиль',
-        icon: 'profile',
+        name: "Профиль",
+        icon: "profile",
         path: `${RootPaths.PROFILE}/${ProfilePaths.VIEWER}`,
     },
-]
+];
 
 export const TabBar = () => {
-    const location = useLocation()
-
+    const location = useLocation();
+    const { isMobile } = useScreen();
     const isShow = useMemo(() => {
         return (
+            isMobile &&
             !location.pathname.includes(RootPaths.AUTH) &&
             !location.pathname.includes(RootPaths.EVENTS) &&
             !location.pathname.includes(RootPaths.SCHEDULE) &&
             !location.pathname.includes(RootPaths.PROJECTS) &&
             !location.pathname.includes(RootPaths.USER)
-        )
-    }, [location])
+        );
+    }, [location, isMobile]);
 
-    const getView = useCallback((id: RootPaths) => {
-        return location.pathname.includes(id) ? 'brand' : 'placeholder'
-    }, [location])
+    const getView = useCallback(
+        (id: RootPaths) => {
+            return location.pathname.includes(id) ? "brand" : "placeholder";
+        },
+        [location]
+    );
+
+    if (!isShow) return null;
 
     return createPortal(
         <TransitionFade className={styles.root}>
             {isShow && (
                 <div className={styles.wrapper}>
-                    {data.map(item => (
+                    {data.map((item) => (
                         <Link
                             key={item.id}
                             className={styles.item}
@@ -95,5 +97,5 @@ export const TabBar = () => {
             )}
         </TransitionFade>,
         document.body
-    )
-}
+    );
+};
