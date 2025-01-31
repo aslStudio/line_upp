@@ -27,6 +27,7 @@ async function createTokens(data: CreateTokenParams) {
             error: true
         }
     } catch (e) {
+        console.log(e)
         return {
             error: true
         }
@@ -57,6 +58,7 @@ async function refreshToken() {
             error: true
         }
     } catch (e) {
+        console.log(e)
         return {
             error: true
         }

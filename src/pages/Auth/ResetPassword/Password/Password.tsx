@@ -23,6 +23,9 @@ export const ResetPasswordRepeatPage = () => {
         repeatPassword,
         resetState
     } = useSelector((state: RootState) => state.resetPassword)
+    const {
+        data
+    } = useSelector((state: RootState) => state.viewer)
     const dispatch = useDispatch<AppDispatch>()
 
     const [isError, setIsError] = useState(false)
@@ -30,6 +33,7 @@ export const ResetPasswordRepeatPage = () => {
     const onSubmit = useCallback(() => {
         if (password === repeatPassword) {
             dispatch(resetPasswordModel.thunks.resetPasswordThunk({
+                profileId: data.id,
                 password,
             }))
         } else {

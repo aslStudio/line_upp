@@ -33,7 +33,7 @@ export async function createRequest<T>({
 
         const url = withBaseUrl
             ? withPrefix
-                ? `${ENV.APP_API_URL}api/${data.url}/`
+                ? `${ENV.APP_API_URL}api/v1/${data.url}/`
                 : `${ENV.APP_API_URL}${data.url}/`
             : data.url
 

@@ -16,6 +16,7 @@ export type ConfirmCodeParams = {
 }
 
 export type ResetPasswordParams = {
+    profileId: string | number
     password: string
 }
 

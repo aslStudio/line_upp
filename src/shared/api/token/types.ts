@@ -1,7 +1,7 @@
 import { ResponseDefault } from "@/shared/lib/api/createRequest"
 
 export type CreateTokenParams = {
-    username: string
+    phone: string
     password: string
 }
 

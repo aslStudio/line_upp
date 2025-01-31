@@ -24,7 +24,7 @@ export const RegistrationPhonePage = () => {
 
     const onClick = useCallback(() => {
         if (phone.length === 12) {
-            dispatch(registrationModel.thunks.sendCodeThunk({ phone }))
+            dispatch(registrationModel.thunks.sendCodeThunk({ phone: phone.replace('+', '') }))
         } else {
             setIsError(true)
         }

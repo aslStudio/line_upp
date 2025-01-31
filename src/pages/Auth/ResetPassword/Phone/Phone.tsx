@@ -24,7 +24,7 @@ export const ResetPasswordPhonePage = () => {
 
     const onClick = useCallback(() => {
         if (phone.length === 12) {
-            dispatch(resetPasswordModel.thunks.sendCodeThunk({ phone }))
+            dispatch(resetPasswordModel.thunks.sendCodeThunk({ phone: phone.replace('+', '') }))
         } else {
             setIsError(true)
         }

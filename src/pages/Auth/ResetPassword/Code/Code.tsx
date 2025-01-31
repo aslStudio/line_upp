@@ -34,7 +34,7 @@ export const ResetPasswordCodePage = () => {
 
     const onRetry = useCallback(() => {
         if (timer === 0) {
-            dispatch(resetPasswordModel.thunks.sendCodeThunk({ phone }))
+            dispatch(resetPasswordModel.thunks.sendCodeThunk({ phone: phone.replace('+', '') }))
             initTimer(30)
         }
     }, [timer, initTimer])

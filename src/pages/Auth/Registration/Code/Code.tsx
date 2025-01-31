@@ -28,7 +28,7 @@ export const RegistrationCodePage = () => {
     const onClick = useCallback(() => {
         if (code.length === 6) {
             dispatch(registrationModel.thunks.confirmCodeThunk({
-                phone,
+                phone: phone.replace('+', ''),
                 random_code: code,
             }))
         } else {
@@ -38,7 +38,7 @@ export const RegistrationCodePage = () => {
 
     const onRetry = useCallback(() => {
         if (timer === 0) {
-            dispatch(registrationModel.thunks.sendCodeThunk({ phone }))
+            dispatch(registrationModel.thunks.sendCodeThunk({ phone: phone.replace('+', '') }))
             initTimer(30)
         }
     }, [timer, initTimer])

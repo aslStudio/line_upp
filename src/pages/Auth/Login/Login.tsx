@@ -33,7 +33,7 @@ export const Login = () => {
     const onClick = useCallback(() => {
         if (phone.length === 12 && pass) {
             dispatch(loginModel.thunks.loginThunk({
-                username: phone,
+                phone: phone,
                 password: pass,
             }))
         }

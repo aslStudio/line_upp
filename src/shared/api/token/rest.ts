@@ -4,18 +4,16 @@ import { TokenApi } from './types'
 export const tokenApi: TokenApi = {
     create: async data =>
         await createRequest({
-            url: 'auth/jwt/create',
+            url: 'profiles/token',
             method: 'POST',
             withAuth: false,
-            withPrefix: false,
             data,
         }),
     refresh: async data =>
         await createRequest({
-            url: 'auth/jwt/refresh',
+            url: 'profiles/token/refresh',
             method: 'POST',
             withAuth: false,
-            withPrefix: false,
             data,
         })
 }
