@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     position: fixed;
     left: 0;
@@ -36,4 +38,16 @@
 
     padding-top: 16px;
     padding-bottom: 16px;
+}
+
+.tooltip {
+    width: 521px;
+}
+
+@include media-tablet() {
+    .root {
+        top: 180px;
+
+        height: calc(100vh - 180px);
+    }
 }

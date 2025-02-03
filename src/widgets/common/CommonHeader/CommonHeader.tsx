@@ -9,6 +9,7 @@ import { TransitionFade } from "@/shared/ui/TransitionFade"
 import { Icon } from "@/shared/ui/Icon"
 
 import styles from './CommonHeader.module.scss'
+import {useScreen} from "@/shared/lib/providers/ScreenProvider";
 
 export type CommonHeaderProps = PropsDefault<{
     title?: string
@@ -21,6 +22,7 @@ export type CommonHeaderProps = PropsDefault<{
         inputRef: React.RefObject<HTMLInputElement | null>
         isFocused: boolean
         onFocus: () => void
+        onBlur: () => void
     }) => React.ReactNode
     FavoriteButton: React.ReactNode
 
@@ -44,6 +46,7 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({
     onClearSearch,
 }) => {
     const { title: monthTitle } = useCommonHeaderContext()
+    const { isDesktop } = useScreen()
 
     const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -51,10 +54,62 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({
 
     return (
         <div className={clsx(styles.root, className)}>
-            {(title || mainFilterValue) && (
-                <div className={styles.header}>
-                    <p className={styles.title}>{title}</p>
-                    {mainFilterValue && (
+            <div className={styles.wrapper}>
+                {(title || mainFilterValue) && !isDesktop && (
+                    <div className={styles.header}>
+                        <p className={styles.title}>{title}</p>
+                        {mainFilterValue && (
+                            <div
+                                className={styles['main-filter']}
+                                onClick={onClickMainFilter}
+                            >
+                                <p>{mainFilterValue}</p>
+                                <Icon
+                                    name={'chevron'}
+                                    view={'base'}
+                                    size={20}
+                                />
+                            </div>
+                        )}
+                    </div>
+                )}
+                <AnimationWrapper
+                    isFocused={isFocused && !isDesktop}
+                    isFiltered={isFiltered}
+
+                    SearchInput={InputSearch({
+                        inputRef,
+                        isFocused,
+                        onFocus: () => setIsFocused(true),
+                        onBlur: () => {
+                            if (isDesktop) {
+                                setIsFocused(false)
+                            }
+                        }
+                    })}
+                    FavoriteToggleButton={FavoriteButton}
+                    ClearSearchButton={(
+                        <button
+                            onClick={() => {
+                                onClearSearch?.()
+                                inputRef.current?.blur()
+                                setIsFocused(false)
+                            }}
+                        >
+                            <Icon
+                                className={styles['close-icon']}
+                                key={'isFocused'}
+                                name={'cross-icon'}
+                                view={'placeholder'}
+                                size={21}
+                            />
+                        </button>
+                    )}
+                    FilterModalButton={FilterButton}
+                />
+                <div className={styles.bottom}>
+                    <p className={styles['bottom-title']}>{monthTitle}</p>
+                    {isDesktop && mainFilterValue && (
                         <div
                             className={styles['main-filter']}
                             onClick={onClickMainFilter}
@@ -62,45 +117,13 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({
                             <p>{mainFilterValue}</p>
                             <Icon
                                 name={'chevron'}
-                                view={'base'}
+                                view={'brand'}
                                 size={20}
                             />
                         </div>
                     )}
+                    <CalendarTypeTabs className={styles.tabs} />
                 </div>
-            )}
-            <AnimationWrapper
-                isFocused={isFocused}
-                isFiltered={isFiltered}
-
-                SearchInput={InputSearch({
-                    inputRef,
-                    isFocused,
-                    onFocus: () => setIsFocused(true)
-                })}
-                FavoriteToggleButton={FavoriteButton}
-                ClearSearchButton={(
-                    <button
-                        onClick={() => {
-                            onClearSearch?.()
-                            inputRef.current?.blur()
-                            setIsFocused(false)
-                        }}
-                    >
-                        <Icon
-                            className={styles['close-icon']}
-                            key={'isFocused'}
-                            name={'cross-icon'}
-                            view={'placeholder'}
-                            size={21}
-                        />
-                    </button>
-                )}
-                FilterModalButton={FilterButton}
-            />
-            <div className={styles.bottom}>
-                <p className={styles['bottom-title']}>{monthTitle}</p>
-                <CalendarTypeTabs />
             </div>
         </div>
     )

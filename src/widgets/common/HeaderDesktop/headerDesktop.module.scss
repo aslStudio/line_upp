@@ -7,17 +7,19 @@
     width: 100%;
     z-index: 100;
     padding: 30px 16px 20px;
+    box-sizing: border-box;
     background-color: var(--background-base);
 }
 
 .wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 57px;
     gap: 16px;
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
-    padding-right: 30px;
     padding-bottom: 15px;
     padding-top: 7px;
     min-height: 57px;
@@ -25,9 +27,9 @@
 }
 
 .mainContent {
-    display: flex;
+    display: grid;
     flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: 175px 1fr 130px;
     width: 100%;
     align-items: center;
     background-color: var(--background-secondary);
@@ -52,8 +54,10 @@
 }
 
 .listNav {
+    flex-grow: 1;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     @include media-tablet {
         gap: 28px

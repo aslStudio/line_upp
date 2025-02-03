@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     width: 100%;
     box-sizing: border-box;
@@ -13,6 +15,11 @@
 
     &::-webkit-scrollbar {
         display: none; /* Для Chrome/Edge */
+    }
+
+    @include media-desktop() {
+        max-width: 1400px;
+        margin: 0 auto;
     }
 }
 
@@ -45,6 +52,10 @@
         color: var(--color-red-dark);
         opacity: 1;
     }
+
+    @include media-desktop() {
+        margin-bottom: 45px;
+    }
 }
 
 .body {
@@ -71,6 +82,10 @@
         .body-item-date {
             transform: scale(1);
         }
+    }
+
+    @include media-desktop() {
+        min-height: 160px;
     }
 }
 
@@ -110,6 +125,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
+    }
+
+    @include media-desktop() {
+        p {
+            font-size: 12px;
+            white-space: wrap;
+            overflow: visible;
+        }
     }
 }
 

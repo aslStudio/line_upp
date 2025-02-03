@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,7 @@
     width: 100%;
 
     padding-top: 32px;
+
 }
 
 .bio {
@@ -14,8 +17,12 @@
 }
 
 .field {
-    & + & {
+    &+& {
         margin-top: 8px;
+    }
+
+    @include media-tablet {
+        background-color: var(--background-secondary);
     }
 }
 
@@ -25,6 +32,10 @@
 
 .loader {
     margin-top: 50px;
+
+    @include media-tablet {
+        margin-top: 0px;
+    }
 }
 
 .wrapper {
@@ -57,4 +68,12 @@
     gap: 8px;
 
     margin-top: 32px;
+
+    @include media-tablet {
+        flex-direction: row;
+    }
+}
+
+.modalDesktop {
+    min-width: 385px;
 }

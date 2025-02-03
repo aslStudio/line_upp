@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -8,6 +10,16 @@
     width: 100%;
 }
 
+.titleContent {
+
+    @include media-tablet {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .title {
     font-size: 22px;
     line-height: 28px;
@@ -16,4 +28,24 @@
 
     padding-top: 8px;
     padding-bottom: 24px;
+}
+
+.blocked-contacts {
+    background: none;
+    outline: none;
+    border: none;
+    display: none;
+    margin-top: -8px;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--color-hint);
+    text-align: center;
+
+    @include media-tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 }

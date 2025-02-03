@@ -7,10 +7,6 @@
     width: 100%;
     z-index: 2;
 
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
     background: linear-gradient(var(--background-base) 0%, var(--background-base) 80%, rgba(30, 30, 30, 0) 100%);
     padding: 8px 16px 30px;
 
@@ -19,6 +15,14 @@
     @include media-tablet {
         top: 121px;
     }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .header {
@@ -112,4 +116,26 @@
     font-size: 22px;
     line-height: 28px;
     color: var(--color-base);
+}
+
+@include media-desktop() {
+    .wrapper {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .tabs {
+        margin-left: 20px;
+    }
+
+    .main-filter {
+        cursor: pointer;
+
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 600;
+        color: var(--color-brand);
+
+        margin-left: 16px;
+    }
 }

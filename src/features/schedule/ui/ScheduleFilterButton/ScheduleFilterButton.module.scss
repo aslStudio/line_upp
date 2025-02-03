@@ -1,4 +1,6 @@
 .root {
+    cursor: pointer;
+
     position: relative;
 
     font-size: 20px;
@@ -92,4 +94,8 @@
 
 .button {
     margin-top: 20px;
+}
+
+.tooltip {
+    width: 370px;
 }

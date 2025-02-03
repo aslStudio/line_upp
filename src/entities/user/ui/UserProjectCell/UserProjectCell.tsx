@@ -1,20 +1,20 @@
-import React from "react"
-import {clsx} from "clsx"
+import React from "react";
+import { clsx } from "clsx";
 
-import {User} from "@/entities/user/model"
+import { User } from "@/entities/user/model";
 
-import {PropsDefault} from "@/shared/lib"
-import {Icon} from "@/shared/ui/Icon"
+import { PropsDefault } from "@/shared/lib";
+import { Icon } from "@/shared/ui/Icon";
 
-import styles from "./UserProjectCell.module.scss"
+import styles from "./UserProjectCell.module.scss";
 
 export type UserProjectCellProps = PropsDefault<{
-    id: number | string
-    avatar: string
-    name: string
-    onCreator?: (userId: User['id']) => void
-    onRemove: (userId: User['id']) => void
-}>
+    id: number | string;
+    avatar: string;
+    name: string;
+    onCreator?: (userId: User["id"]) => void;
+    onRemove: (userId: User["id"]) => void;
+}>;
 
 export const UserProjectCell: React.FC<UserProjectCellProps> = ({
     className,
@@ -22,46 +22,36 @@ export const UserProjectCell: React.FC<UserProjectCellProps> = ({
     avatar,
     name,
     onCreator,
-    onRemove
+    onRemove,
 }) => {
     return (
-        <div className={clsx(
-            className,
-            styles.root,
-        )}>
+        <div className={clsx(className, styles.root)}>
             <div className={styles.wrapper}>
                 <div className={styles.avatar}>
-                    <img
-                        src={avatar}
-                        alt={'avatar'}
-                    />
+                    <img src={avatar} alt={"avatar"} />
                 </div>
                 <p className={styles.name}>{name}</p>
             </div>
             <div className={styles.buttons}>
                 {onCreator && (
                     <button
-                        className={styles['button-make-creator']}
+                        className={styles["button-make-creator"]}
                         onClick={() => {
-                            onCreator?.(id)
+                            onCreator?.(id);
                         }}
                     >
                         Назначить создателем
                     </button>
                 )}
                 <button
-                    className={styles['button-remove']}
+                    className={styles["button-remove"]}
                     onClick={() => {
-                        onRemove(id)
+                        onRemove(id);
                     }}
                 >
-                    <Icon
-                        name={'minus'}
-                        view={'dark'}
-                        size={22}
-                    />
+                    <Icon name={"minus"} view={"dark"} size={22} />
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};

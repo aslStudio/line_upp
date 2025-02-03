@@ -1,8 +1,14 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     padding: 10px 16px;
     border-radius: 16px;
     box-sizing: border-box;
     background-color: var(--background-secondary);
+
+    @include media-tablet {
+        background-color: var(--background-base-dark);
+    }
 }
 
 .hidden {

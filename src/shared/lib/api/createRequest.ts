@@ -21,7 +21,7 @@ export async function createRequest<T>({
     ...data
 }: {
     url: string
-    method: 'POST' | 'GET' | 'PUT' | 'DELETE',
+    method: 'POST' | 'GET' | 'PUT' | 'DELETE' | 'PATCH',
     data?: Record<string, unknown>,
     withAuth?: boolean
     withPrefix?: boolean

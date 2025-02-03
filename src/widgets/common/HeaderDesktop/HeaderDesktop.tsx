@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPortal } from "react-dom";
 
@@ -9,6 +9,10 @@ import { TransitionFade } from "@/shared/ui/TransitionFade";
 import styles from "./headerDesktop.module.scss";
 import { useScreen } from "@/shared/lib/providers/ScreenProvider";
 import { images } from "@/shared/assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/app/store";
+import { viewerModel } from "@/entities/viewer/model";
+import { ProfileDropdownContainer } from "./ProfileDropdown";
 
 const data: {
     id: RootPaths;
@@ -39,6 +43,8 @@ const data: {
 export const HeaderDesktop = () => {
     const location = useLocation();
     const { isMobile } = useScreen();
+    const dispatch = useDispatch<AppDispatch>();
+    const { data: dataUser } = useSelector((state: RootState) => state.viewer);
     const isShow = useMemo(() => {
         return (
             !isMobile &&
@@ -48,14 +54,18 @@ export const HeaderDesktop = () => {
             !location.pathname.includes(RootPaths.PROJECTS)
         );
     }, [location, isMobile]);
-
+    useEffect(() => {
+        if (!dataUser.name && !isMobile) {
+            dispatch(viewerModel.thunks.getViewerThunk());
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const getView = useCallback(
         (id: RootPaths) => {
             return location.pathname.includes(id) ? "brand" : "placeholder";
         },
         [location]
     );
-    console.log(isShow, !isMobile);
     if (!isShow) return null;
 
     return createPortal(
@@ -94,7 +104,9 @@ export const HeaderDesktop = () => {
                                 </Link>
                             ))}
                         </div>
-                        <div className={styles.profile}>PROFILE</div>
+                        <div className={styles.profile}>
+                            <ProfileDropdownContainer />
+                        </div>
                     </div>
                     <div className={styles.notices}>
                         <Icon

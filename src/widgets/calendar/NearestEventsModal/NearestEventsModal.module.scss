@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -45,4 +47,34 @@
     border-top: 1px solid var(--border-secondary-alpha);
 
     box-sizing: border-box;
+}
+
+@include media-desktop() {
+    .root {
+        height: 472px;
+    }
+
+    .header {
+        padding-top: 40px;
+        padding-bottom: 32px;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+    .header-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 180px;
+        height: 44px;
+        background-color: var(--background-brand);
+        color: var(--color-inverse);
+        border-radius: 8px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+    }
 }

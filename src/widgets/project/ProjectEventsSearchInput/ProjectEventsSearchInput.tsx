@@ -1,19 +1,23 @@
-import React, {useCallback} from "react"
+import React, {useCallback, useRef} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
 import {AppDispatch, RootState} from "@/app/store.tsx"
 
 import {projectSearchModel} from "@/features/project/model"
 
-import {EventsSearchList} from "@/entities/events/ui";
+import {EventSearchDropdown, EventsSearchList} from "@/entities/events/ui";
 
 import {PropsDefault} from "@/shared/lib"
 import {InputSearch} from "@/shared/ui/fields/InputSearch"
+import {useScreen} from "@/shared/lib/providers/ScreenProvider";
+
+import styles from './ProjectEventsSearchInput.module.scss'
 
 export type ProjectEventsSearchInputProps = PropsDefault<{
     inputRef: React.RefObject<HTMLInputElement | null>
     isFocused: boolean
     onFocus: () => void
+    onBlur: () => void
 }>
 
 export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> = ({
@@ -21,6 +25,7 @@ export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> =
     inputRef,
     isFocused,
     onFocus,
+    onBlur
 }) => {
     const { filters } = useSelector((state: RootState) => state.projectFilters)
     const {
@@ -29,6 +34,10 @@ export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> =
         isPending,
     } = useSelector((state: RootState) => state.projectSearch)
     const dispatch = useDispatch<AppDispatch>()
+
+    const { isDesktop } = useScreen()
+
+    const rootRef = useRef<HTMLDivElement>(null)
 
     const onSearch = useCallback((search: string) => {
         dispatch(projectSearchModel.thunks.searchThunk({
@@ -44,7 +53,7 @@ export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> =
     }, [filters, dispatch])
 
     return (
-        <>
+        <div ref={rootRef}>
             <InputSearch
                 className={className}
                 rootRef={inputRef}
@@ -55,12 +64,28 @@ export const ProjectEventsSearchInput: React.FC<ProjectEventsSearchInputProps> =
                 isLoading={false}
                 onSearch={onSearch}
                 onFocus={onFocus}
+                onBlur={onBlur}
             />
-            <EventsSearchList
-                isShow={isFocused}
-                isPending={isPending}
-                data={data}
-            />
-        </>
+            {!isDesktop && (
+                <EventsSearchList
+                    isShow={isFocused}
+                    isPending={isPending}
+                    data={data}
+                />
+            )}
+            {isDesktop && (
+                <EventSearchDropdown
+                    className={styles.tooltip}
+                    isOpen={isFocused}
+                    isPending={isPending}
+                    data={data}
+                    parentRef={rootRef}
+                    offset={{
+                        top: 135,
+                        right: -110,
+                    }}
+                />
+            )}
+        </div>
     )
 }

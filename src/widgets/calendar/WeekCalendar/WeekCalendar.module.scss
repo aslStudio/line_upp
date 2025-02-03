@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .wrapper {
     display: flex;
 
@@ -73,6 +75,11 @@
 
     &.is-active {
         background-color: var(--background-calendar-card);
+    }
+
+    @include media-desktop() {
+        width: 215px;
+        min-width: 215px;
     }
 }
 

@@ -1,31 +1,30 @@
-import React, { useEffect } from "react"
-import { Navigate, Route, Routes, useLocation } from "react-router-dom"
+import React, { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-import { AuthPage } from "@/pages/Auth/Auth"
-import { Login } from "@/pages/Auth/Login"
+import { AuthPage } from "@/pages/Auth/Auth";
+import { Login } from "@/pages/Auth/Login";
 import {
     Registration,
     RegistrationCodePage,
     RegistrationInfoPage,
     RegistrationPasswordPage,
-    RegistrationPhonePage
-} from "@/pages/Auth/Registration"
+    RegistrationPhonePage,
+} from "@/pages/Auth/Registration";
 import {
     OnBoarding,
     OnBoardingCalendarPage,
     OnBoardingParticipantsPage,
-    OnBoardingProjectsPage, OnBoardingSavePage
-} from "@/pages/Auth/OnBoarding"
+    OnBoardingProjectsPage,
+    OnBoardingSavePage,
+} from "@/pages/Auth/OnBoarding";
 import {
     CalendarPage,
     CalendarMonthPage,
-    CalendarWeekPage
-} from "@/pages/Calendar"
+    CalendarWeekPage,
+} from "@/pages/Calendar";
 import {
     EventPage,
-
     EventShowPage,
-
     EventCreate,
     EventCreateType,
     EventCreateForm,
@@ -35,62 +34,57 @@ import {
     EventCreateRepeat,
     EventCreateProject,
     EventCreateSubgroup,
-    EventCreateParticipants
-} from "@/pages/Event"
+    EventCreateParticipants,
+} from "@/pages/Event";
 import {
     ScheduleMonthPage,
     ScheduleCalendarPage,
-    ScheduleWeekPage
-} from "@/pages/ScheduleCalendarPage"
+    ScheduleWeekPage,
+} from "@/pages/ScheduleCalendarPage";
 import {
     ProjectCalendarPage,
     ProjectMonthPage,
-    ProjectWeekPage
-} from "@/pages/ProjectCalendarPage"
+    ProjectWeekPage,
+} from "@/pages/ProjectCalendarPage";
 import {
     ScheduleListPage,
     SchedulePage,
-    ScheduleShowPage
-} from "@/pages/SchedulePage"
+    ScheduleShowPage,
+} from "@/pages/SchedulePage";
 import {
     ProjectListPage,
     ProjectPage,
-    ProjectShowPage
-} from "@/pages/ProjectPage"
+    ProjectShowPage,
+} from "@/pages/ProjectPage";
 import {
     ProjectCreateOrganizersPage,
     ProjectCreatePage,
-    ProjectCreateParticipantsPage
-} from "@/pages/ProjectPage/ProjectCreatePage"
-import {ProjectCreateFormPage} from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
+    ProjectCreateParticipantsPage,
+} from "@/pages/ProjectPage/ProjectCreatePage";
+import { ProjectCreateFormPage } from "@/pages/ProjectPage/ProjectCreatePage/ProjectCreateFormPage";
 import {
     NotificationsArchivePage,
     NotificationsListPage,
-    NotificationsPage, NotificationsSettingsPage
-} from "@/pages/NotificationsPage"
+    NotificationsPage,
+    NotificationsSettingsPage,
+} from "@/pages/NotificationsPage";
 import {
     ProfilePage,
     ViewerProfilePage,
-    EditProfilePage, ViewerSecurityPage, ViewerContacts,
+    EditProfilePage,
+    ViewerSecurityPage,
+    ViewerContacts,
 } from "@/pages/ProfilePage";
 import {
     ResetPassword,
     ResetPasswordCodePage,
     ResetPasswordPhonePage,
-    ResetPasswordRepeatPage
+    ResetPasswordRepeatPage,
 } from "@/pages/Auth/ResetPassword";
-import {
-    BlockedUsersPage,
-    UserPage,
-    UserShowPage
-} from "@/pages/UserPage";
-import {
-    FaqList,
-    FaqMain,
-    FaqPage
-} from "@/pages/Faq"
+import { BlockedUsersPage, UserPage, UserShowPage } from "@/pages/UserPage";
+import { FaqMain, FaqPage } from "@/pages/Faq";
 
-import {NotificationListProvider} from "@/widgets/notification"
+import { NotificationListProvider } from "@/widgets/notification";
 
 import {
     AuthPaths,
@@ -106,17 +100,19 @@ import {
     NotificationPaths,
     ProfilePaths,
     RecoveryPaths,
-    UserPaths, FAQPaths,
-} from "@/shared/lib"
-import { tokenModel } from "@/shared/model"
-import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider"
-import {useProjectNavigate, useTelegram} from "@/shared/lib/hooks"
+    UserPaths,
+    FAQPaths,
+} from "@/shared/lib";
+import { tokenModel } from "@/shared/model";
+import { useRouteTransitionContext } from "@/shared/lib/providers/RouteTransitionProvider";
+import { useProjectNavigate, useTelegram } from "@/shared/lib/hooks";
+import { FaqList } from "@/features/faq/FaqList";
 
 export const RouterView = () => {
-    const location = useLocation()
-    const { goBack } = useProjectNavigate()
+    const location = useLocation();
+    const { goBack } = useProjectNavigate();
 
-    const { BackButton } = useTelegram()
+    const { BackButton } = useTelegram();
     const {
         displayLocation,
         rootClass,
@@ -126,65 +122,59 @@ export const RouterView = () => {
         setEventsClass,
         setScheduleClass,
         setDisplayLocation,
-    } = useRouteTransitionContext()
+    } = useRouteTransitionContext();
 
     useEffect(() => {
-        const locationRoot = location.pathname.split('/')[1]
-        const locationSub = location.pathname.split('/')[2]
-        const displayRoot = displayLocation.pathname.split('/')[1]
-        const displaySub = displayLocation.pathname.split('/')[2]
+        const locationRoot = location.pathname.split("/")[1];
+        const locationSub = location.pathname.split("/")[2];
+        const displayRoot = displayLocation.pathname.split("/")[1];
+        const displaySub = displayLocation.pathname.split("/")[2];
 
         if (locationRoot !== displayRoot) {
-            setRootClass("fade-out")
+            setRootClass("fade-out");
         } else if (locationSub !== displaySub) {
             if (RootPaths.AUTH.includes(locationRoot)) {
-                setAuthClass('fade-out')
+                setAuthClass("fade-out");
             } else if (RootPaths.CALENDAR.includes(locationRoot)) {
-                setMainClass('fade-out')
+                setMainClass("fade-out");
             } else if (RootPaths.EVENTS.includes(locationRoot)) {
-                setEventsClass('fade-out')
+                setEventsClass("fade-out");
             } else if (RootPaths.SCHEDULE_CALENDAR.includes(locationRoot)) {
-                setScheduleClass('fade-out')
+                setScheduleClass("fade-out");
             }
         }
         setTimeout(() => {
-            setRootClass('fade-in')
-            setAuthClass('fade-in')
-            setMainClass('fade-in')
-            setScheduleClass('fade-in')
-            setEventsClass('fade-in')
-            setDisplayLocation(location)
-        }, 300)
+            setRootClass("fade-in");
+            setAuthClass("fade-in");
+            setMainClass("fade-in");
+            setScheduleClass("fade-in");
+            setEventsClass("fade-in");
+            setDisplayLocation(location);
+        }, 300);
     }, [location, displayLocation]);
 
     useEffect(() => {
-        const locationSub = location.pathname.split('/')[2]
+        const locationSub = location.pathname.split("/")[2];
 
         if (
             locationSub &&
-            [CalendarPaths.WEEK, CalendarPaths.MONTH].includes(locationSub as CalendarPaths)
+            [CalendarPaths.WEEK, CalendarPaths.MONTH].includes(
+                locationSub as CalendarPaths
+            )
         ) {
-            BackButton?.hide()
+            BackButton?.hide();
         } else {
-            BackButton?.show()
-            BackButton?.onClick(goBack)
+            BackButton?.show();
+            BackButton?.onClick(goBack);
         }
     }, [location]);
 
     return (
-        <div
-            className={rootClass}
-        >
+        <div className={rootClass}>
             <Routes location={displayLocation}>
-                <Route
-                    path={`${RootPaths.AUTH}/*`}
-                    element={<AuthPage />}
-                >
-                    <Route 
-                        path={AuthPaths.LOGIN}
-                        element={<Login />}
-                    />
-                    <Route 
+                <Route path={`${RootPaths.AUTH}/*`} element={<AuthPage />}>
+                    <Route path={AuthPaths.LOGIN} element={<Login />} />
+                    <Route
                         path={`${AuthPaths.REGISTRATION}/*`}
                         element={
                             <CheckIsLoginRoute>
@@ -226,7 +216,7 @@ export const RouterView = () => {
                             element={<ResetPasswordRepeatPage />}
                         />
                     </Route>
-                    <Route 
+                    <Route
                         path={`${AuthPaths.ON_BOARDING}/*`}
                         element={<OnBoarding />}
                     >
@@ -248,15 +238,15 @@ export const RouterView = () => {
                         />
                     </Route>
                 </Route>
-                <Route 
+                <Route
                     path={`${RootPaths.CALENDAR}/*`}
-                    element={(
+                    element={
                         <PrivateRoute>
                             <CalendarPage />
                         </PrivateRoute>
-                    )}
+                    }
                 >
-                    <Route 
+                    <Route
                         path={CalendarPaths.WEEK}
                         element={
                             <PrivateRoute>
@@ -264,7 +254,7 @@ export const RouterView = () => {
                             </PrivateRoute>
                         }
                     />
-                    <Route 
+                    <Route
                         path={CalendarPaths.MONTH}
                         element={
                             <PrivateRoute>
@@ -275,11 +265,11 @@ export const RouterView = () => {
                 </Route>
                 <Route
                     path={`${RootPaths.SCHEDULE_CALENDAR}/*`}
-                    element={(
+                    element={
                         <PrivateRoute>
                             <ScheduleCalendarPage />
                         </PrivateRoute>
-                    )}
+                    }
                 >
                     <Route
                         path={CalendarPaths.WEEK}
@@ -300,33 +290,30 @@ export const RouterView = () => {
                 </Route>
                 <Route
                     path={`${RootPaths.PROJECT_CALENDAR}/*`}
-                    element={(
+                    element={
                         <PrivateRoute>
                             <ProjectCalendarPage />
                         </PrivateRoute>
-                    )}
+                    }
                 >
                     <Route
                         path={CalendarPaths.MONTH}
-                        element={(
+                        element={
                             <PrivateRoute>
                                 <ProjectMonthPage />
                             </PrivateRoute>
-                        )}
+                        }
                     />
                     <Route
                         path={CalendarPaths.WEEK}
-                        element={(
+                        element={
                             <PrivateRoute>
                                 <ProjectWeekPage />
                             </PrivateRoute>
-                        )}
+                        }
                     />
                 </Route>
-                <Route
-                    path={`${RootPaths.EVENTS}/*`}
-                    element={<EventPage />}
-                >
+                <Route path={`${RootPaths.EVENTS}/*`} element={<EventPage />}>
                     <Route
                         path={EventsPaths.EXPAND}
                         element={<EventShowPage />}
@@ -373,10 +360,7 @@ export const RouterView = () => {
                         />
                     </Route>
                 </Route>
-                <Route
-                    path={RootPaths.SCHEDULE}
-                    element={<SchedulePage />}
-                >
+                <Route path={RootPaths.SCHEDULE} element={<SchedulePage />}>
                     <Route
                         path={SchedulePaths.LIST}
                         element={<ScheduleListPage />}
@@ -386,10 +370,7 @@ export const RouterView = () => {
                         element={<ScheduleShowPage />}
                     />
                 </Route>
-                <Route
-                    path={RootPaths.PROJECTS}
-                    element={<ProjectPage />}
-                >
+                <Route path={RootPaths.PROJECTS} element={<ProjectPage />}>
                     <Route
                         path={ProjectPaths.LIST}
                         element={<ProjectListPage />}
@@ -418,11 +399,11 @@ export const RouterView = () => {
                 </Route>
                 <Route
                     path={RootPaths.NOTIFICATION}
-                    element={(
+                    element={
                         <NotificationListProvider>
                             <NotificationsPage />
                         </NotificationListProvider>
-                    )}
+                    }
                 >
                     <Route
                         path={NotificationPaths.LIST}
@@ -439,11 +420,11 @@ export const RouterView = () => {
                 </Route>
                 <Route
                     path={RootPaths.PROFILE}
-                    element={(
+                    element={
                         <PrivateRoute>
                             <ProfilePage />
                         </PrivateRoute>
-                    )}
+                    }
                 >
                     <Route
                         path={ProfilePaths.VIEWER}
@@ -464,99 +445,64 @@ export const RouterView = () => {
                 </Route>
                 <Route
                     path={RootPaths.USER}
-                    element={(
+                    element={
                         <PrivateRoute>
                             <UserPage />
                         </PrivateRoute>
-                    )}
+                    }
                 >
-                    <Route
-                        path={UserPaths.SHOW}
-                        element={<UserShowPage />}
-                    />
+                    <Route path={UserPaths.SHOW} element={<UserShowPage />} />
                     <Route
                         path={UserPaths.BLOCKED}
                         element={<BlockedUsersPage />}
                     />
                 </Route>
-                <Route
-                    path={RootPaths.FAQ}
-                    element={<FaqPage />}
-                >
-                    <Route
-                        path={FAQPaths.MAIN}
-                        element={<FaqMain />}
-                    />
-                    <Route
-                        path={FAQPaths.LIST}
-                        element={<FaqList />}
-                    />
+                <Route path={RootPaths.FAQ} element={<FaqPage />}>
+                    <Route path={FAQPaths.MAIN} element={<FaqMain />} />
+                    <Route path={FAQPaths.LIST} element={<FaqList />} />
                 </Route>
-                <Route 
-                    path={RootPaths.ANOTHER}
-                    element={<AnotherRoute />}
-                />
+                <Route path={RootPaths.ANOTHER} element={<AnotherRoute />} />
             </Routes>
         </div>
-    )
-}
+    );
+};
 
-const PrivateRoute: React.FC<React.PropsWithChildren> = ({
-    children
-}) => {
-    const token = tokenModel.getAccessToken()
+const PrivateRoute: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const token = tokenModel.getAccessToken();
 
     if (!token) {
-        return (
-            <Navigate 
-                to={`${RootPaths.AUTH}/${AuthPaths.LOGIN}`}
-                replace
-            />
-        )
+        return <Navigate to={`${RootPaths.AUTH}/${AuthPaths.LOGIN}`} replace />;
     }
 
-    return (
-        <>
-            {children}
-        </>
-    )
-}
+    return <>{children}</>;
+};
 
-const CheckIsLoginRoute: React.FC<React.PropsWithChildren> = ({
-    children
-}) => {
-    const token = tokenModel.getAccessToken()
+const CheckIsLoginRoute: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const token = tokenModel.getAccessToken();
 
     if (token) {
         return (
-            <Navigate 
+            <Navigate
                 to={`${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`}
                 replace
             />
-        )
+        );
     }
 
-    return (
-        <>{children}</>
-    )
-}
+    return <>{children}</>;
+};
 
 const AnotherRoute = () => {
-    const token = tokenModel.getAccessToken()
+    const token = tokenModel.getAccessToken();
 
     if (token) {
         return (
-            <Navigate 
+            <Navigate
                 to={`${RootPaths.CALENDAR}/${CalendarPaths.WEEK}`}
                 replace
             />
-        )
+        );
     }
 
-    return (
-        <Navigate 
-            to={`${RootPaths.AUTH}/${AuthPaths.LOGIN}`}
-            replace
-        />
-    )
-}
+    return <Navigate to={`${RootPaths.AUTH}/${AuthPaths.LOGIN}`} replace />;
+};

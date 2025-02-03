@@ -17,12 +17,15 @@ import styles from './NearestEventsModal.module.scss'
 import {useProjectNavigate, useTimer} from "@/shared/lib/hooks";
 import {CreateEventPaths, EventsPaths, RootPaths} from "@/shared/lib";
 import {createEventsModel} from "@/features/events/model";
+import {useScreen} from "@/shared/lib/providers/ScreenProvider";
 
 export const NearestEventsModal: React.FC = () => {
     const {
         isPending,
     } = useSelector((state: RootState) => state.nearestList)
     const dispatch = useDispatch<AppDispatch>()
+
+    const { isDesktop } = useScreen()
 
     useEffect(() => {
         dispatch(nearestListModel.thunks.fetchNearestThunk())
@@ -40,16 +43,23 @@ export const NearestEventsModal: React.FC = () => {
             isDismissible={false}
             isModal={false}
             isUnderTabBar={true}
-            snapPoints={[
-                '155px',
-                0.95
-            ]}
+            snapPoints={
+                isDesktop
+                    ? [
+                        '140px',
+                        '472px',
+                    ]
+                    : [
+                        '155px',
+                        0.95
+                    ]
+            }
             HeaderComponent={(
                 <Header />
             )}
             setIsOpen={() => {}}
         >
-            <TransitionFade>
+            <TransitionFade className={styles.root}>
                 {isPending && (
                     <Skeleton
                         key={'Skeleton'}
@@ -77,6 +87,7 @@ const Header = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     const {timer, initTimer} = useTimer()
+    const { isDesktop } = useScreen()
 
     const nearestStartTime = useMemo(() => {
         if (data[0]) {
@@ -132,13 +143,21 @@ const Header = () => {
                             widthRange={[0.6, 0.8]}
                         />
                     </div>
-                    <button className={styles['header-button']}>
-                        <Icon
-                            name={'cross-icon'}
-                            view={'brand'}
-                            size={20}
-                        />
-                    </button>
+
+                    {isDesktop && (
+                        <button className={styles['header-button']}>
+                            Новое событие
+                        </button>
+                    )}
+                    {!isDesktop && (
+                        <button className={styles['header-button']}>
+                            <Icon
+                                name={'cross-icon'}
+                                view={'brand'}
+                                size={20}
+                            />
+                        </button>
+                    )}
                 </div>
             )}
             {!isPending && (
@@ -157,23 +176,40 @@ const Header = () => {
                             </p>
                         </div>
                     )}
-                    <button
-                        className={styles['header-button']}
-                        onClick={() => {
-                            dispatch(createEventsModel.actions.reset())
-                            navigate(
-                                RootPaths.EVENTS,
-                                EventsPaths.CREATE,
-                                CreateEventPaths.EVENT_TYPE,
-                            )
-                        }}
-                    >
-                        <Icon
-                            name={'cross-icon'}
-                            view={'brand'}
-                            size={20}
-                        />
-                    </button>
+                    {isDesktop && (
+                        <button
+                            className={styles['header-button']}
+                            onClick={() => {
+                                dispatch(createEventsModel.actions.reset())
+                                navigate(
+                                    RootPaths.EVENTS,
+                                    EventsPaths.CREATE,
+                                    CreateEventPaths.EVENT_TYPE,
+                                )
+                            }}
+                        >
+                            Новое событие
+                        </button>
+                    )}
+                    {!isDesktop && (
+                        <button
+                            className={styles['header-button']}
+                            onClick={() => {
+                                dispatch(createEventsModel.actions.reset())
+                                navigate(
+                                    RootPaths.EVENTS,
+                                    EventsPaths.CREATE,
+                                    CreateEventPaths.EVENT_TYPE,
+                                )
+                            }}
+                        >
+                            <Icon
+                                name={'cross-icon'}
+                                view={'brand'}
+                                size={20}
+                            />
+                        </button>
+                    )}
                 </div>
             )}
         </TransitionFade>

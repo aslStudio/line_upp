@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     position: relative;
 
@@ -9,6 +11,10 @@
 
     transition: 0.3s ease;
     transition-property: background-color, color;
+
+    @include media-tablet {
+        cursor: pointer;
+    }
 }
 
 .size {
@@ -137,6 +143,6 @@
 
 .is-disabled {
     pointer-events: none;
-    background-color: var(--background-disabled)!important;
-    color: var(--color-disabled)!important;
+    background-color: var(--background-disabled) !important;
+    color: var(--color-disabled) !important;
 }

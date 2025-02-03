@@ -1,0 +1,11 @@
+.tooltip {
+    position: absolute;
+    z-index: 100;
+    padding: 25px 32px;
+    box-sizing: border-box;
+    background-color: var(--background-secondary);
+    border-radius: 12px;
+
+    max-height: 50vh;
+    overflow-y: scroll;
+}

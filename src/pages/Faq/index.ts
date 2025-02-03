@@ -1,4 +1,3 @@
-export * from './Faq.tsx'
+export * from "./Faq.tsx";
 
-export * from './FaqMain'
-export * from './FaqList'
+export * from "./FaqMain";

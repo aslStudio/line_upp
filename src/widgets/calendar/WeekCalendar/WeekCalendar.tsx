@@ -12,6 +12,7 @@ import {TimeStamp} from "@/shared/lib"
 
 import styles from './WeekCalendar.module.scss'
 import {useCommonHeaderContext} from "@/widgets/common";
+import {useScreen} from "@/shared/lib/providers/ScreenProvider";
 
 export type WeekCalendarProps = {
     days: CalendarEvent[]
@@ -29,6 +30,7 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
     onScrollEnd,
 }) => {
     const { setTitle } = useCommonHeaderContext()
+    const { isDesktop } = useScreen()
 
     const bodyRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLDivElement>(null);
@@ -148,7 +150,7 @@ export const WeekCalendar: React.FC<WeekCalendarProps> = ({
                                     event={event}
                                 />
                             ))}
-                            {day.events.length === 0 && withCreateButton && (
+                            {day.events.length === 0 && !isDesktop && withCreateButton && (
                                 <button
                                     className={styles['add-button']}
                                     onClick={onClickAdd}

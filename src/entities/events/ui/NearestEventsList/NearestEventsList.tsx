@@ -26,6 +26,7 @@ export const NearestEventsList: React.FC<NearestEventsListProps> = ({
         <div className={styles.list}>
             {events.map(event => (
                 <EventCard
+                    className={styles.item}
                     key={event.id}
                     event={event}
                 />

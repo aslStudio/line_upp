@@ -1,13 +1,27 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     display: flex;
     flex-direction: column;
     gap: 16px;
-
     padding-bottom: 16px;
+    overflow: auto;
+    height: 100%;
+
+    @include media-tablet {
+        overflow: auto;
+
+    }
+
+    @include custom-scrollbar(3px, 100px);
 }
 
 .with-border {
     border-bottom: 1px solid var(--background-secondary);
+
+    @include media-tablet {
+        border-bottom: 1px solid var(--background-input-desktop);
+    }
 }
 
 .header {
@@ -35,4 +49,8 @@
     width: calc(100% - 64px);
     height: 1px;
     background-color: var(--background-secondary);
+
+    @include media-tablet {
+        border-bottom: 1px solid var(--background-input-desktop);
+    }
 }

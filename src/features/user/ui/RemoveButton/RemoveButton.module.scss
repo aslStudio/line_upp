@@ -1,3 +1,5 @@
+@use "@/shared/styles/mixins" as *;
+
 .title {
     font-size: 17px;
     line-height: 22px;
@@ -24,4 +26,14 @@
     gap: 8px;
 
     margin-top: 32px;
+
+    @include media-tablet {
+        flex-direction: row;
+        padding-inline: 44px;
+    }
+}
+
+.mainContent {
+    min-width: 343px;
+    box-sizing: border-box;
 }

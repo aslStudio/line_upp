@@ -1,51 +1,59 @@
-import {useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import {AppDispatch, RootState} from "@/app/store.tsx"
+import { AppDispatch, RootState } from "@/app/store.tsx";
 
-import {UserCellList, UserProjectCell} from "@/entities/user/ui"
-import {blockedUsersModel} from "@/entities/user/model"
+import { UserCellList, UserProjectCell } from "@/entities/user/ui";
+import { blockedUsersModel } from "@/entities/user/model";
 
-import {TransitionFade} from "@/shared/ui/TransitionFade"
-import {Loader} from "@/shared/ui/Loader"
-import {usersApi} from "@/shared/api/users"
+import { TransitionFade } from "@/shared/ui/TransitionFade";
+import { Loader } from "@/shared/ui/Loader";
+import { usersApi } from "@/shared/api/users";
 
-import styles from './BlockedUsersPage.module.scss'
+import styles from "./BlockedUsersPage.module.scss";
+import { useProjectNavigate } from "@/shared/lib/hooks";
 
 export const BlockedUsersPage = () => {
-    const {
-        isPending,
-        data,
-    } = useSelector((state: RootState) => state.blockedUsers)
-    const dispatch = useDispatch<AppDispatch>()
-
+    const { isPending, data } = useSelector(
+        (state: RootState) => state.blockedUsers
+    );
+    const dispatch = useDispatch<AppDispatch>();
+    const { goBack } = useProjectNavigate();
     useEffect(() => {
-        dispatch(blockedUsersModel.thunks.fetchBlockedUsersThunks())
+        dispatch(blockedUsersModel.thunks.fetchBlockedUsersThunks());
     }, []);
 
     return (
-        <div>
-            <h1 className={styles.title}>Заблокированные контакты</h1>
+        <div className={styles.root}>
+            <div className={styles.titleContent}>
+                <h1 className={styles.title}>Заблокированные контакты</h1>
+                <button
+                    className={styles["blocked-contacts"]}
+                    onClick={() => {
+                        goBack();
+                    }}
+                >
+                    Назад
+                </button>
+            </div>
             <TransitionFade className={styles.wrapper}>
                 {isPending && (
-                    <Loader
-                        key={'Loader'}
-                        color={'brand'}
-                        size={'m'}
-                    />
+                    <Loader key={"Loader"} color={"brand"} size={"m"} />
                 )}
                 {!isPending && (
                     <UserCellList
                         className={styles.list}
                         list={data}
-                        render={item => (
+                        render={(item) => (
                             <UserProjectCell
                                 {...item}
                                 onRemove={async () => {
                                     await usersApi.unblockUser({
                                         id: item.id,
-                                    })
-                                    dispatch(blockedUsersModel.thunks.fetchBlockedUsersThunks())
+                                    });
+                                    dispatch(
+                                        blockedUsersModel.thunks.fetchBlockedUsersThunks()
+                                    );
                                 }}
                             />
                         )}
@@ -53,5 +61,5 @@ export const BlockedUsersPage = () => {
                 )}
             </TransitionFade>
         </div>
-    )
-}
+    );
+};

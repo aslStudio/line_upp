@@ -1,5 +1,33 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @include media-tablet {
+        box-sizing: border-box;
+        margin-top: 130px;
+        min-width: 750px;
+        width: calc(100% - 40vw);
+        max-width: 850px;
+        background-color: var(--background-secondary);
+        padding: 32px 40px 120px 64px;
+        border-radius: 20px;
+        height: auto;
+    }
+}
+
+.changePassword {
+    @include media-tablet {
+        background-color: var(--background-base);
+    }
+}
+
+.btnSave {
+    display: none;
+
+    @include media-tablet {
+        display: flex;
+    }
 }

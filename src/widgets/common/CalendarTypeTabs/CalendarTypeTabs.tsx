@@ -1,7 +1,7 @@
 import {useLocation} from "react-router-dom"
 import {Tabs} from "@/shared/ui/Tabs";
-import {CalendarPaths} from "@/shared/lib";
-import {useCallback, useMemo} from "react";
+import {CalendarPaths, PropsDefault} from "@/shared/lib";
+import React, {useCallback, useMemo} from "react";
 import {useProjectNavigate} from "@/shared/lib/hooks";
 
 const data = [
@@ -15,7 +15,7 @@ const data = [
     },
 ]
 
-export const CalendarTypeTabs = () => {
+export const CalendarTypeTabs: React.FC<PropsDefault> = ({ className }) => {
     const location = useLocation()
     const { navigate } = useProjectNavigate()
 
@@ -38,6 +38,7 @@ export const CalendarTypeTabs = () => {
 
     return (
         <Tabs
+            className={className}
             value={value}
             data={data}
             setValue={v => onChangeType(v as CalendarPaths)}

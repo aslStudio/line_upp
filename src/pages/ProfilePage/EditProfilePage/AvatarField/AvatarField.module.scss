@@ -1,9 +1,17 @@
+@use "@/shared/styles/mixins" as *;
+
 .root {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include media-tablet {
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
 }
 
 .field {
     width: 98px;
+
 }
