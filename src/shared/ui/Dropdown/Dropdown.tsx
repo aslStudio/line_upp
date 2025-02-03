@@ -1,35 +1,40 @@
-import React from "react"
-import {createPortal} from "react-dom"
-import {AnimatePresence, motion} from "framer-motion"
-import {clsx} from "clsx"
+import React from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { clsx } from "clsx";
 
-import {PropsDefaultWithChildren} from "@/shared/lib"
+import { PropsDefaultWithChildren } from "@/shared/lib";
 
-import styles from './Dropdown.module.scss'
+import styles from "./Dropdown.module.scss";
 
-export const Dropdown: React.FC<PropsDefaultWithChildren<{
-    parentRef: React.RefObject<HTMLElement>,
-    offset: {
-        top: number,
-        right: number
-    },
-    isOpen: boolean
-    setIsOpen?: (isOpen: boolean) => void
-}>> = ({
-    className,
-    parentRef,
-    offset,
-    isOpen,
-    children
-}) => {
+export const Dropdown: React.FC<
+    PropsDefaultWithChildren<{
+        parentRef: React.RefObject<HTMLElement>;
+        offset: {
+            top: number;
+            right: number;
+        };
+        isOpen: boolean;
+        setIsOpen?: (isOpen: boolean) => void;
+    }>
+> = ({ className, parentRef, offset, isOpen, children }) => {
     return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <motion.div
                     className={clsx(className, styles.tooltip)}
                     style={{
-                        top: `${(parentRef.current?.offsetTop ?? 0) + (parentRef.current?.clientHeight ?? 0) + offset.top}px`,
-                        right: `${window.innerWidth - (parentRef.current?.offsetLeft ?? 0) - (parentRef.current?.clientWidth ?? 0) + offset.right}px`,
+                        top: `${
+                            (parentRef.current?.offsetTop ?? 0) +
+                            (parentRef.current?.clientHeight ?? 0) +
+                            offset.top
+                        }px`,
+                        right: `${
+                            window.innerWidth -
+                            (parentRef.current?.offsetLeft ?? 0) -
+                            (parentRef.current?.clientWidth ?? 0) +
+                            offset.right
+                        }px`,
                     }}
                     initial={{
                         opacity: 0,
@@ -49,5 +54,5 @@ export const Dropdown: React.FC<PropsDefaultWithChildren<{
             )}
         </AnimatePresence>,
         document.body
-    )
-}
+    );
+};

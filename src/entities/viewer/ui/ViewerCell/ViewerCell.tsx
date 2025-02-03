@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
+import { clsx } from "clsx"
 
-import { PropsDefault } from "@/shared/lib";
+import { PropsDefault } from "@/shared/lib"
+import { images } from "@/shared/assets/images"
 
-import styles from "./ViewerCell.module.scss";
-import { clsx } from "clsx";
-import {images} from "@/shared/assets/images";
+import styles from "./ViewerCell.module.scss"
 
 export type ViewerCellProps = PropsDefault<{
     avatar: string;

@@ -32,7 +32,7 @@ export const ProfileDropdownContainer = () => {
                             isActive={isOpenModal || activeProfile}
                         />
                     </div>
-                    {isOpenModal && <ProfileDropdown />}
+                    <ProfileDropdown isOpenModal={isOpenModal} />
                 </div>
             ) : (
                 <>
